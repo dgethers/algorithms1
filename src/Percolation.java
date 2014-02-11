@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * User: outzider
  * Date: 2/5/14
@@ -7,11 +9,14 @@ public class Percolation {
 
     private WeightedQuickUnionUF weightedQuickUnionUF;
     private int N;
+    private boolean[][] grid;
 
     // create N-by-N grid, with all sites blocked
     public Percolation(int N) {
-        weightedQuickUnionUF = new WeightedQuickUnionUF(N);
-        this.N = N;
+        System.out.println("Original N: " + N);
+        this.N = N + 2;
+        System.out.println("Modified N: " + this.N);
+        weightedQuickUnionUF = new WeightedQuickUnionUF(this.N);
 
     }
 
@@ -19,10 +24,11 @@ public class Percolation {
     public void open(int i, int j) {
         checkInputParameters(i, j);
 
-//        if (!weightedQuickUnionUF.connected(i, j)) {
-        System.out.println("p = " + weightedQuickUnionUF.find(i));
-//            weightedQuickUnionUF.union(i, j);
-//        }
+        grid[i][j] = true;
+
+        if (!weightedQuickUnionUF.connected(i, j)) {
+            weightedQuickUnionUF.union(i, j);
+        }
     }
 
 
@@ -30,14 +36,14 @@ public class Percolation {
     public boolean isOpen(int i, int j) {
         checkInputParameters(i, j);
 
-        return weightedQuickUnionUF.connected(i, j);
+        return grid[i][j] == false;
     }
 
     // is site (row i, column j) full?
     public boolean isFull(int i, int j) {
         checkInputParameters(i, j);
 
-        return false;
+        return grid[i][j];
     }
 
     private void checkInputParameters(int i, int j) {
@@ -47,26 +53,29 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-
-        return false;
+//        weightedQuickUnionUF.union(0, 1);
+//        weightedQuickUnionUF.union(N - 1, N - 2);
+        return weightedQuickUnionUF.connected(0, N - 1);
     }
 
     public static void main(String[] args) {
         In in = new In(args[0]);
-        int n = in.readInt();
-        System.out.println("n = " + n);
-        System.out.println("-> " + in.readLine());
+        int n = Integer.parseInt(in.readLine());
         Percolation percolation = new Percolation(n);
+        boolean isPercolated = false;
         while (in.hasNextLine()) {
-            String line = in.readLine();
-            System.out.println("line = " + line);
-            String[] tmp = line.split(" ");
-            int i = Integer.parseInt(tmp[0]);
-            int j = Integer.parseInt(tmp[1]);
-            System.out.println("here");
-            percolation.open(i, j);
-            System.out.println(String.format("i=%d, j=%d, is connected = %b", i, j, percolation.isOpen(i, j)));
-
+            String line = in.readLine().trim();
+//            System.out.println(String.format("%s", line));
+            String[] unionPoints = line.split("\\s+");
+//            System.out.println(Arrays.toString(unionPoints));
+            int p = Integer.parseInt(unionPoints[0]);
+            int q = Integer.parseInt(unionPoints[1]);
+            percolation.open(p, q);
+            if (percolation.percolates()) {
+                isPercolated = true;
+                break;
+            }
         }
+        System.out.println("system percolates: " + isPercolated);
     }
 }
