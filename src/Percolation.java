@@ -15,16 +15,18 @@ public class Percolation {
         weightedQuickUnionUF = new WeightedQuickUnionUF((N * N) + 2);
         open = new boolean[N][N];
 
-        //join top row with source point
-        for (int i = 0; i < N; i++) {
-            int q = xyTo1D(0, i);
-            weightedQuickUnionUF.union(0, q);
-        }
+        if (N > 1) {
+            //join top row with source point
+            for (int i = 0; i < N; i++) {
+                int q = xyTo1D(0, i);
+                weightedQuickUnionUF.union(0, q);
+            }
 
-        //join bottom row with sink point
-        for (int i = 0; i < N; i++) {
-            int q = xyTo1D(N - 1, i);
-            weightedQuickUnionUF.union(N * N + 1, q);
+            //join bottom row with sink point
+            for (int i = 0; i < N; i++) {
+                int q = xyTo1D(N - 1, i);
+                weightedQuickUnionUF.union(N * N + 1, q);
+            }
         }
     }
 
@@ -50,6 +52,11 @@ public class Percolation {
         //search down neighbor
         if ((i - 1) < N - 1 && open[(i - 1) + 1][(j - 1)]) {
             weightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1) + 1, (j - 1)));
+        }
+
+        if (N == 1) { //only one element so link source and sink
+            weightedQuickUnionUF.union(0, xyTo1D((i - 1), (j - 1)));
+            weightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), N * N + 1);
         }
 
         open[(i - 1)][(j - 1)] = true;
