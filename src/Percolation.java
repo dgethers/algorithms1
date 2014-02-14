@@ -6,6 +6,7 @@
 public class Percolation {
 
     private WeightedQuickUnionUF weightedQuickUnionUF;
+    private WeightedQuickUnionUF isFullWeightedQuickUnionUF;
     private boolean[][] open;
     private int N;
 
@@ -13,6 +14,7 @@ public class Percolation {
     public Percolation(int N) {
         this.N = N;
         weightedQuickUnionUF = new WeightedQuickUnionUF((N * N) + 2);
+        isFullWeightedQuickUnionUF = new WeightedQuickUnionUF((N * N) + 1);
         open = new boolean[N][N];
 
         if (N > 1) {
@@ -20,6 +22,7 @@ public class Percolation {
             for (int i = 0; i < N; i++) {
                 int q = xyTo1D(0, i);
                 weightedQuickUnionUF.union(0, q);
+                isFullWeightedQuickUnionUF.union(0, q);
             }
 
             //join bottom row with sink point
@@ -37,21 +40,25 @@ public class Percolation {
         //search left neighbor
         if ((j - 1) > 0 && open[(i - 1)][(j - 1) - 1]) {
             weightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1), (j - 1) - 1));
+            isFullWeightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1), (j - 1) - 1));
         }
 
         //search right neighbor
         if ((j - 1) < N - 1 && open[(i - 1)][(j - 1) + 1]) {
             weightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1), (j - 1) + 1));
+            isFullWeightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1), (j - 1) + 1));
         }
 
         //search up neighbor
         if ((i - 1) > 0 && open[(i - 1) - 1][(j - 1)]) {
             weightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1) - 1, (j - 1)));
+            isFullWeightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1) - 1, (j - 1)));
         }
 
         //search down neighbor
         if ((i - 1) < N - 1 && open[(i - 1) + 1][(j - 1)]) {
             weightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1) + 1, (j - 1)));
+            isFullWeightedQuickUnionUF.union(xyTo1D((i - 1), (j - 1)), xyTo1D((i - 1) + 1, (j - 1)));
         }
 
         if (N == 1) { //only one element so link source and sink
@@ -74,7 +81,7 @@ public class Percolation {
     public boolean isFull(int i, int j) {
         checkInputParameters(i, j);
 
-        return weightedQuickUnionUF.connected(0, xyTo1D(i - 1, j - 1));
+        return isFullWeightedQuickUnionUF.connected(0, xyTo1D(i - 1, j - 1));
     }
 
     // does the system percolate?
