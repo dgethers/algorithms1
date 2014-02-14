@@ -90,6 +90,42 @@ public class PercolationTest {
         assertFalse(getPercolationResults("in/percolation/greeting57.txt"));
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testIsFullIndexOutOfBoundsExceptionWithLargerIndex() {
+        Percolation percolation = new Percolation(4);
+        percolation.isFull(5, 5);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testOpenIndexOutOfBoundsExceptionWithLargerIndex() {
+        Percolation percolation = new Percolation(4);
+        percolation.open(5, 5);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testIsOpenIndexOutOfBoundsExceptionWithLargerIndex() {
+        Percolation percolation = new Percolation(4);
+        percolation.isOpen(5, 5);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testIsOpenIndexOutOfBoundsExceptionWithNegativeIndex() {
+        Percolation percolation = new Percolation(4);
+        percolation.isOpen(-1, 3);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testOpenIndexOutOfBoundsExceptionWithNegativeIndex() {
+        Percolation percolation = new Percolation(4);
+        percolation.open(3, -1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testIsFullIndexOutOfBoundsExceptionWithNegativeIndex() {
+        Percolation percolation = new Percolation(4);
+        percolation.isFull(-1, -1);
+    }
+
     private boolean getPercolationResults(String inputFile) {
         In in = new In(inputFile);
         int n = Integer.parseInt(in.readLine());
