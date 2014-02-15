@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="PercolationVisualizer" type="Application" factoryName="Application" singleton="true" nameIsGenerated="true">
+  <configuration default="false" name="PercolationStats - 200 100" type="Application" factoryName="Application" folderName="Percolation" singleton="true">
     <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-    <option name="MAIN_CLASS_NAME" value="PercolationVisualizer" />
+    <option name="MAIN_CLASS_NAME" value="PercolationStats" />
     <option name="VM_PARAMETERS" value="" />
-    <option name="PROGRAM_PARAMETERS" value="in/percolation/input10.txt" />
+    <option name="PROGRAM_PARAMETERS" value="200 100" />
     <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
     <option name="ALTERNATIVE_JRE_PATH" value="" />
