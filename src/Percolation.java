@@ -86,12 +86,10 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-
         return weightedQuickUnionUF.connected(0, (N * N) + 1);
     }
 
     private int xyTo1D(int row, int column) {
-
         return ((row * N) + column) + 1;
     }
 
