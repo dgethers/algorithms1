@@ -10,6 +10,11 @@ public class PercolationStats {
 
     // perform T independent computational experiments on an N-by-N grid
     public PercolationStats(int N, int T) {
+
+        if (N <= 0 || T <= 0) {
+            throw new IllegalArgumentException();
+        }
+
         percentOfSitesOpen = new double[T];
         this.T = T;
 
