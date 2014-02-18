@@ -23,6 +23,11 @@ public class Deque<Item> implements Iterable<Item> {
             this.prev = prev;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            return String.format("[%s]", data);
+        }
     }
 
     private class SinglyLinkedList {
@@ -57,7 +62,7 @@ public class Deque<Item> implements Iterable<Item> {
             }
         }
 
-        public void printNodes() {
+        /*public void printNodes() {
             Node next = head;
 
             while (next != null) {
@@ -65,7 +70,7 @@ public class Deque<Item> implements Iterable<Item> {
                 next = next.next;
             }
             System.out.println();
-        }
+        }*/
 
         public Item popFromFront() {
             Node tmp = head;
@@ -73,7 +78,9 @@ public class Deque<Item> implements Iterable<Item> {
             if (tmp != null) {
                 head = head.next;
 
-                if (head == null) {
+                if (head != null) {
+                    head.prev = null;
+                } else {
                     tail = null;
                 }
 
@@ -132,7 +139,7 @@ public class Deque<Item> implements Iterable<Item> {
 
         linkedList.addToFront(item);
         size++;
-        linkedList.printNodes();
+//        linkedList.printNodes();
     }
 
     // insert the item at the end
@@ -143,7 +150,7 @@ public class Deque<Item> implements Iterable<Item> {
 
         linkedList.addToRear(item);
         size++;
-        linkedList.printNodes();
+//        linkedList.printNodes();
     }
 
     // delete and return the item at the front
@@ -155,7 +162,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         size--;
-        linkedList.printNodes();
+//        linkedList.printNodes();
         return item;
     }
 
@@ -168,7 +175,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         size--;
-        linkedList.printNodes();
+//        linkedList.printNodes();
         return item;
 
     }
@@ -180,9 +187,11 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     private class DequeIterator implements Iterator<Item> {
+        int cursor = 1;
+
         @Override
         public boolean hasNext() {
-            return size > 0;
+            return cursor <= size;
         }
 
         @Override
@@ -191,6 +200,7 @@ public class Deque<Item> implements Iterable<Item> {
                 throw new NoSuchElementException();
             }
 
+            cursor++;
             return linkedList.popFromFront();
         }
 

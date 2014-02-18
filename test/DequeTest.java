@@ -132,4 +132,43 @@ public class DequeTest {
         assertEquals(new Integer(2), deque.removeLast());
         assertEquals(new Integer(1), deque.removeLast());
     }
+
+    @Test
+    public void randomlyAddAndRemoveFirstAndLast() {
+        Deque<Integer> deque = new Deque<Integer>();
+        deque.addFirst(1);
+        deque.removeLast();
+        deque.addFirst(1);
+        deque.addLast(2);
+        assertEquals(new Integer(1), deque.removeFirst());
+        assertEquals(new Integer(2), deque.removeLast());
+        deque.addFirst(3);
+        assertEquals(new Integer(3), deque.removeLast());
+    }
+
+    @Test
+    public void iteratorForEach() {
+        Deque<Integer> deque = new Deque<Integer>();
+        deque.addLast(1);
+        deque.addLast(2);
+        deque.addLast(3);
+        deque.addLast(4);
+        int currentNumber = 1;
+        for (Integer integer : deque) {
+            assertEquals(new Integer(currentNumber++), integer);
+        }
+    }
+
+    @Test
+    public void iteratorForEachEmptyDeque() {
+        Deque<Integer> deque = new Deque<Integer>();
+        deque.addLast(1);
+        deque.addLast(2);
+        deque.addLast(3);
+        deque.addLast(4);
+        int currentNumber = 1;
+        for (Integer integer : deque) {
+            assertEquals(new Integer(currentNumber++), integer);
+        }
+    }
 }
