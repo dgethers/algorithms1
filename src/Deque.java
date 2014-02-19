@@ -18,12 +18,6 @@ public class Deque<Item> implements Iterable<Item> {
             this.next = next;
         }
 
-        private Node(Item data, Node prev, Node next) {
-            this.data = data;
-            this.prev = prev;
-            this.next = next;
-        }
-
         @Override
         public String toString() {
             return String.format("[%s]", data);
@@ -61,16 +55,6 @@ public class Deque<Item> implements Iterable<Item> {
                 tail = tmp;
             }
         }
-
-        /*public void printNodes() {
-            Node next = head;
-
-            while (next != null) {
-                System.out.print(next.data);
-                next = next.next;
-            }
-            System.out.println();
-        }*/
 
         public Item popFromFront() {
             Node tmp = head;
@@ -150,7 +134,6 @@ public class Deque<Item> implements Iterable<Item> {
 
         linkedList.addToRear(item);
         size++;
-//        linkedList.printNodes();
     }
 
     // delete and return the item at the front
@@ -162,7 +145,6 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         size--;
-//        linkedList.printNodes();
         return item;
     }
 
@@ -175,7 +157,6 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         size--;
-//        linkedList.printNodes();
         return item;
 
     }
@@ -220,21 +201,6 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing
     public static void main(String[] args) {
-        Deque<Integer> deque = new Deque<Integer>();
-        deque.addFirst(4);
-        deque.addFirst(3);
-        deque.addFirst(2);
-        deque.addFirst(1);
-        deque.addLast(1);
-        deque.addLast(2);
-        deque.addLast(3);
-        deque.addLast(4);
-        deque.removeFirst();
-        deque.addFirst(1);
-        deque.removeLast();
-        deque.addLast(4);
-        deque.removeLast();
-        deque.removeLast();
     }
 
 }
