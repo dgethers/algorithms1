@@ -171,4 +171,15 @@ public class DequeTest {
             assertEquals(new Integer(currentNumber++), integer);
         }
     }
+
+    @Test
+    public void multipleUniqueIterators() {
+        Deque<Integer> deque = new Deque<Integer>();
+        deque.addLast(1);
+        deque.addLast(2);
+        Iterator<Integer> iterator1 = deque.iterator();
+        Iterator<Integer> iterator2 = deque.iterator();
+        assertEquals(new Integer(1), iterator1.next());
+        assertEquals(new Integer(1), iterator2.next());
+    }
 }

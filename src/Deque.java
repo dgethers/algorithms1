@@ -183,25 +183,33 @@ public class Deque<Item> implements Iterable<Item> {
     // return an iterator over items in order from front to end
     public Iterator<Item> iterator() {
 
-        return new DequeIterator();
+        return new DequeIterator(linkedList.head);
     }
 
     private class DequeIterator implements Iterator<Item> {
-        int cursor = 1;
+        Node current;
+
+        private DequeIterator(Node current) {
+            this.current = current;
+        }
 
         @Override
         public boolean hasNext() {
-            return cursor <= size;
+            return current != null;
         }
 
         @Override
         public Item next() {
-            if (size < 1) {
+            Item item;
+
+            if (hasNext()) {
+                item = current.data;
+                current = current.next;
+            } else {
                 throw new NoSuchElementException();
             }
 
-            cursor++;
-            return linkedList.popFromFront();
+            return item;
         }
 
         @Override
