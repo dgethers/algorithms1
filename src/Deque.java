@@ -10,8 +10,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     private class Node {
         private Item data;
-        private Node next;
-        private Node prev;
+        private Node prev, next;
 
         @Override
         public String toString() {
@@ -104,7 +103,6 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return the number of items on the deque
     public int size() {
-
         return size;
     }
 
@@ -116,7 +114,6 @@ public class Deque<Item> implements Iterable<Item> {
 
         linkedList.addToFront(item);
         size++;
-//        linkedList.printNodes();
     }
 
     // insert the item at the end
@@ -127,39 +124,34 @@ public class Deque<Item> implements Iterable<Item> {
 
         linkedList.addToRear(item);
         size++;
-//        linkedList.printNodes();
     }
 
     // delete and return the item at the front
     public Item removeFirst() {
-
         Item item = linkedList.popFromFront();
         if (item == null) {
             throw new NoSuchElementException();
         }
 
         size--;
-//        linkedList.printNodes();
+
         return item;
     }
 
     // delete and return the item at the end
     public Item removeLast() {
-
         Item item = linkedList.popFromRear();
         if (item == null) {
             throw new NoSuchElementException();
         }
 
         size--;
-//        linkedList.printNodes();
-        return item;
 
+        return item;
     }
 
     // return an iterator over items in order from front to end
     public Iterator<Item> iterator() {
-
         return new DequeIterator(linkedList.sentinel);
     }
 
@@ -189,9 +181,4 @@ public class Deque<Item> implements Iterable<Item> {
             throw new UnsupportedOperationException();
         }
     }
-
-    // unit testing
-    public static void main(String[] args) {
-    }
-
 }
