@@ -13,95 +13,88 @@ public class Deque<Item> implements Iterable<Item> {
         private Node next;
         private Node prev;
 
-        private Node(Item data, Node next) {
-            this.data = data;
-            this.next = next;
-        }
-
         @Override
         public String toString() {
             return String.format("[%s]", data);
         }
     }
 
-    private class SinglyLinkedList {
-        private Node head;
-        private Node tail;
+    private class LinkedList {
+        private Node sentinel;
+
+        private LinkedList() {
+            sentinel = new Node();
+            sentinel.prev = sentinel;
+            sentinel.next = sentinel;
+        }
 
         public void addToFront(Item data) {
-            Node tmp = new Node(data, head);
-            tmp.next = head;
+            Node tmp = new Node();
+            tmp.data = data;
 
-            if (tail == null) {
-                tail = tmp;
+            tmp.next = sentinel.next;
+            sentinel.next.prev = tmp;
+            sentinel.next = tmp;
+            tmp.prev = sentinel;
+
+            if (sentinel.prev == sentinel) {
+                sentinel.prev = tmp;
             }
-
-            if (head != null) {
-                head.prev = tmp;
-            }
-
-            head = tmp;
         }
 
         public void addToRear(Item data) {
-            Node tmp = new Node(data, null);
+            Node tmp = new Node();
+            tmp.data = data;
 
-            if (head == null) {
-                head = tmp;
-                tail = tmp;
-            } else {
-                tail.next = tmp;
-                tmp.prev = tail;
-                tail = tmp;
+            tmp.prev = sentinel.prev;
+            tmp.next = sentinel;
+            sentinel.prev.next = tmp;
+            sentinel.prev = tmp;
+
+            if (sentinel.next == sentinel) {
+                sentinel.next = tmp;
             }
         }
 
         public Item popFromFront() {
-            Node tmp = head;
+            Node tmp = sentinel.next;
 
-            if (tmp != null) {
-                head = head.next;
-
-                if (head != null) {
-                    head.prev = null;
-                } else {
-                    tail = null;
-                }
-
-                return tmp.data;
+            if (tmp == sentinel) {
+                return null;
             }
 
-            return null;
+            tmp.prev.prev = sentinel;
+            sentinel.next = tmp.next;
+
+            if (sentinel.prev == sentinel) {
+                sentinel.prev = sentinel.next;
+                tmp.next.prev = sentinel;
+            }
+
+            return tmp.data;
         }
 
         public Item popFromRear() {
-            Node tmp = tail;
+            Node tmp = sentinel.prev;
 
-            if (tmp != null) {
-                Node prev = tmp.prev;
-
-                if (prev != null) {
-                    prev.next = null;
-                } else {
-                    tail = null;
-                    head = null;
-                }
-                tail = prev;
-
-                return tmp.data;
+            if (tmp == sentinel) {
+                return null;
             }
 
-            return null;
+            sentinel.next = tmp.next;
+            sentinel.prev = tmp.prev;
+
+            return tmp.data;
         }
 
     }
 
-    private SinglyLinkedList linkedList;
+    private LinkedList linkedList;
     private int size;
 
     // construct an empty deque
     public Deque() {
-        linkedList = new SinglyLinkedList();
+        linkedList = new LinkedList();
     }
 
     // is the deque empty?
@@ -134,6 +127,7 @@ public class Deque<Item> implements Iterable<Item> {
 
         linkedList.addToRear(item);
         size++;
+//        linkedList.printNodes();
     }
 
     // delete and return the item at the front
@@ -145,6 +139,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         size--;
+//        linkedList.printNodes();
         return item;
     }
 
@@ -157,6 +152,7 @@ public class Deque<Item> implements Iterable<Item> {
         }
 
         size--;
+//        linkedList.printNodes();
         return item;
 
     }
@@ -164,33 +160,28 @@ public class Deque<Item> implements Iterable<Item> {
     // return an iterator over items in order from front to end
     public Iterator<Item> iterator() {
 
-        return new DequeIterator(linkedList.head);
+        return new DequeIterator(linkedList.sentinel);
     }
 
     private class DequeIterator implements Iterator<Item> {
-        Node current;
+        private Node current;
 
-        private DequeIterator(Node current) {
-            this.current = current;
+        public DequeIterator(Node sentinel) {
+            current = sentinel;
         }
 
         @Override
         public boolean hasNext() {
-            return current != null;
+            return current.next != linkedList.sentinel;
         }
 
         @Override
         public Item next() {
-            Item item;
-
-            if (hasNext()) {
-                item = current.data;
-                current = current.next;
-            } else {
+            if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-
-            return item;
+            current = current.next;
+            return current.data;
         }
 
         @Override

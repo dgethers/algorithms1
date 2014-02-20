@@ -144,6 +144,11 @@ public class DequeTest {
         assertEquals(new Integer(2), deque.removeLast());
         deque.addFirst(3);
         assertEquals(new Integer(3), deque.removeLast());
+        deque.addLast(1);
+        deque.addLast(2);
+        assertEquals(new Integer(1), deque.removeFirst());
+        assertEquals(new Integer(2), deque.removeFirst());
+
     }
 
     @Test
