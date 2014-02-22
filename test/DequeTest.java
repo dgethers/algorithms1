@@ -187,4 +187,40 @@ public class DequeTest {
         assertEquals(new Integer(1), iterator1.next());
         assertEquals(new Integer(1), iterator2.next());
     }
+
+    @Test
+    public void addNItemsAndRemoveNItemsWithRandomOperations() {
+        Deque<Integer> deque = new Deque<Integer>();
+        for (int i = 0; i < 3000; i++) {
+            randomInsertOperation(deque, i);
+        }
+
+        for (int i = 0; i < 3000; i++) {
+            randomRemoveOperation(deque);
+        }
+    }
+
+    private void randomInsertOperation(Deque<Integer> deque, Integer integer) {
+        int type = StdRandom.uniform(1);
+        switch (type) {
+            case 0:
+                deque.addFirst(integer);
+                break;
+            case 1:
+                deque.addLast(integer);
+                break;
+        }
+    }
+
+    private void randomRemoveOperation(Deque<Integer> deque) {
+        int type = StdRandom.uniform(1);
+        switch (type) {
+            case 0:
+                deque.removeFirst();
+                break;
+            case 1:
+                deque.removeLast();
+                break;
+        }
+    }
 }
