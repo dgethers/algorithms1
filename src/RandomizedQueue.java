@@ -87,8 +87,8 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     private class RandomizedQueueIterator implements Iterator<Item> {
-        Item[] items;
-        int index;
+        private Item[] items;
+        private int index;
 
         @SuppressWarnings("unchecked")
         public RandomizedQueueIterator() {
