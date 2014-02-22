@@ -15,7 +15,7 @@ public class Subset {
         }
 
         for (int i = 0; i < count; i++) {
-            StdOut.print(deque.dequeue());
+            StdOut.println(deque.dequeue());
         }
     }
 }
