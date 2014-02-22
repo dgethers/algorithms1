@@ -35,10 +35,6 @@ public class Deque<Item> implements Iterable<Item> {
             sentinel.next.prev = tmp;
             sentinel.next = tmp;
             tmp.prev = sentinel;
-
-            if (sentinel.prev == sentinel) {
-                sentinel.prev = tmp;
-            }
         }
 
         public void addToRear(Item data) {
@@ -49,10 +45,6 @@ public class Deque<Item> implements Iterable<Item> {
             tmp.next = sentinel;
             sentinel.prev.next = tmp;
             sentinel.prev = tmp;
-
-            if (sentinel.next == sentinel) {
-                sentinel.next = tmp;
-            }
         }
 
         public Item popFromFront() {
@@ -62,13 +54,8 @@ public class Deque<Item> implements Iterable<Item> {
                 return null;
             }
 
-            tmp.prev.prev = sentinel;
+            tmp.next.prev = sentinel;
             sentinel.next = tmp.next;
-
-            if (sentinel.prev == sentinel) {
-                sentinel.prev = sentinel.next;
-                tmp.next.prev = sentinel;
-            }
 
             return tmp.data;
         }
@@ -80,7 +67,7 @@ public class Deque<Item> implements Iterable<Item> {
                 return null;
             }
 
-            sentinel.next = tmp.next;
+            tmp.prev.next = sentinel;
             sentinel.prev = tmp.prev;
 
             return tmp.data;
