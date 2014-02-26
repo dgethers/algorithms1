@@ -64,11 +64,13 @@ public class Point implements Comparable<Point> {
     public int compareTo(Point that) {
         if (y < that.y || (y == that.y && x < that.x)) {
             return -1;
-        } else if (y > that.y || (y == that.y && x > that.x)) {
+        }
+
+        if (y > that.y || (y == that.y && x > that.x)) {
             return 1;
         }
 
-        return 0; //TODO: Default to equal. Consider testing equal conditions
+        return 0;
     }
 
     // return string representation of this point
@@ -83,10 +85,6 @@ public class Point implements Comparable<Point> {
             double originToP = slopeTo(p);
             double originToQ = slopeTo(q);
 
-            if (originToP == originToQ) {
-                return 0;
-            }
-
             if (originToP < originToQ) {
                 return -1;
             }
@@ -95,7 +93,7 @@ public class Point implements Comparable<Point> {
                 return 1;
             }
 
-            return 0; //TODO: This is not appealing. Fix this
+            return 0;
         }
     }
 

@@ -78,15 +78,15 @@ public class PointTest {
 
     @Test
     public void slopeComparator() throws Exception {
-        Point point1 = new Point(4, 1);
-        Point point2 = new Point(1, 4);
+        Point p = new Point(4, 1);
+        Point q = new Point(1, 4);
         Point origin = new Point(0, 0);
-        Point[] points = {point2, point1};
+        Point[] points = {q, p};
         System.out.println(Arrays.toString(points));
         Arrays.sort(points, origin.SLOPE_ORDER);
         System.out.println(Arrays.toString(points));
 
-        assertEquals(point2, points[0]);
-        assertEquals(point1, points[1]);
+        assertEquals(p, points[0]);
+        assertEquals(q, points[1]);
     }
 }
