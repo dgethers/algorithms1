@@ -15,7 +15,7 @@ import java.util.Comparator;
 public class Point implements Comparable<Point> {
 
     // compare points by slope
-    public final Comparator<Point> SLOPE_ORDER = null;       // YOUR DEFINITION HERE
+    public final Comparator<Point> SLOPE_ORDER = new SlopeComparator();       // YOUR DEFINITION HERE
 
     private final int x;                              // x coordinate
     private final int y;                              // y coordinate
@@ -41,24 +41,62 @@ public class Point implements Comparable<Point> {
 
     // slope between this point and that point
     public double slopeTo(Point that) {
-        //TODO: Implement this
+        double yResult = that.y - y;
+        double xResult = that.x - x;
 
-        return 0.0;
+        if (that.x == x && that.y == y) { //degenerate point
+            return Double.NEGATIVE_INFINITY;
+        }
+
+        if (yResult == 0.0) { //horizontal line
+            return 0;
+        }
+
+        if (xResult == 0.0) { //vertical line
+            return Double.POSITIVE_INFINITY;
+        }
+
+        return yResult / xResult;
     }
 
     // is this point lexicographically smaller than that one?
     // comparing y-coordinates and breaking ties by x-coordinates
     public int compareTo(Point that) {
-        //TODO: Implement this
+        if (y < that.y || (y == that.y && x < that.x)) {
+            return -1;
+        } else if (y > that.y || (y == that.y && x > that.x)) {
+            return 1;
+        }
 
-        return 0;
+        return 0; //TODO: Default to equal. Consider testing equal conditions
     }
 
     // return string representation of this point
     public String toString() {
-        //TODO: Implement this
+        return String.format("(%d, %d)", x, y);
+    }
 
-        return "(" + x + ", " + y + ")";
+    public class SlopeComparator implements Comparator<Point> {
+
+        @Override
+        public int compare(Point p, Point q) {
+            double originToP = slopeTo(p);
+            double originToQ = slopeTo(q);
+
+            if (originToP == originToQ) {
+                return 0;
+            }
+
+            if (originToP < originToQ) {
+                return -1;
+            }
+
+            if (originToP > originToQ) {
+                return 1;
+            }
+
+            return 0; //TODO: This is not appealing. Fix this
+        }
     }
 
     // unit test
