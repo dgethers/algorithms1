@@ -78,7 +78,7 @@ public class Point implements Comparable<Point> {
         return String.format("(%d, %d)", x, y);
     }
 
-    public class SlopeComparator implements Comparator<Point> {
+    private class SlopeComparator implements Comparator<Point> {
 
         @Override
         public int compare(Point p, Point q) {
