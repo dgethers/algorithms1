@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * User: outzider
  * Date: 2/21/14
@@ -8,31 +10,39 @@ public class Brute {
     private Point[] coordinates;
 
     public Brute(String inputFile) {
+        StdDraw.setXscale(0, 32768);
+        StdDraw.setYscale(0, 32768);
         In in = new In(inputFile);
-        int N = Integer.parseInt(in.readLine());
-//        System.out.println("N = " + N);
+        int N = in.readInt();
         coordinates = new Point[N];
         for (int i = 0; i < coordinates.length; i++) {
-            String line = in.readLine();
-            String[] points = line.trim().split("\\s+");
-            Point point = new Point(Integer.parseInt(points[0]), Integer.parseInt(points[1]));
-//            System.out.println(point);
+            Point point = new Point(in.readInt(), in.readInt());
             coordinates[i] = point;
+            point.draw();
         }
     }
 
-    public void checkIfLineIsOnSegment() {
-        //draw points
+    public void printAndDrawCollinearLineSegments() {
         for (int i = 0; i < coordinates.length; i++) {
-            Point coordinate = coordinates[i];
-            coordinate.draw();
+            for (int j = i + 1; j < coordinates.length; j++) {
+                for (int k = j + 1; k < coordinates.length; k++) {
+                    for (int l = k + 1; l < coordinates.length; l++) {
+                        if (coordinates[i].slopeTo(coordinates[j]) == coordinates[i].slopeTo(coordinates[k]) &&
+                                coordinates[i].slopeTo(coordinates[k]) == coordinates[i].slopeTo(coordinates[l])) {
+                            Point[] tmp = {coordinates[i], coordinates[j], coordinates[k], coordinates[l]};
+                            Arrays.sort(tmp);
+                            System.out.printf("%s->%s->%s->%s%n", tmp[0], tmp[1], tmp[2], tmp[3]);
+                            tmp[0].drawTo(tmp[3]);
+                        }
+                    }
+                }
+            }
         }
-        coordinates[0].drawTo(coordinates[coordinates.length - 1]);
     }
 
     public static void main(String[] args) {
         Brute brute = new Brute(args[0]);
-        brute.checkIfLineIsOnSegment();
+        brute.printAndDrawCollinearLineSegments();
 
     }
 }
