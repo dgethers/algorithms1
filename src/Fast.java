@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Iterator;
 
 /**
  * User: outzider
@@ -10,9 +9,10 @@ public class Fast {
 
     private Point[] coordinates;
 
+    //TODO: Uncomment calls to draw points and lines
     public Fast() {
-        StdDraw.setXscale(0, 32768);
-        StdDraw.setYscale(0, 32768);
+//        StdDraw.setXscale(0, 32768);
+//        StdDraw.setYscale(0, 32768);
     }
 
     private void setPointsFromInputFile(String inputFile) {
@@ -22,52 +22,43 @@ public class Fast {
         for (int i = 0; i < coordinates.length; i++) {
             Point point = new Point(in.readInt(), in.readInt());
             coordinates[i] = point;
-            point.draw();
+//            point.draw();
         }
     }
 
     private void printAndDrawCollinearLineSegments() {
         for (int i = 0; i < coordinates.length; i++) {
+            System.out.printf("Currently on %d iteration%n", i);
             Point p = coordinates[i];
-            Point[] tmp = Arrays.copyOfRange(coordinates, i + 1, coordinates.length);
+            Point[] tmp = Arrays.copyOfRange(coordinates, i, coordinates.length);
+            Arrays.sort(tmp);
             Arrays.sort(tmp, p.SLOPE_ORDER);
-            Bag<Point>[] items = new Bag[tmp.length];
-            int bagIndex = -1;
+            int minIndex = -1;
+            int maxIndex = -1;
             double slopeTo = Double.NaN;
 
-            if (tmp.length > 0) {
-                for (int j = 0; j < tmp.length; j++) {
-                    double currentSlope = p.slopeTo(tmp[j]);
-                    if (currentSlope == slopeTo) {
-                        items[bagIndex].add(tmp[j]);
-                    } else {
-                        Bag<Point> matchingPoints = new Bag<Point>();
-                        matchingPoints.add(p);
-                        matchingPoints.add(tmp[j]);
-                        items[++bagIndex] = matchingPoints;
-                        slopeTo = currentSlope;
+            for (int j = 0; j < tmp.length; j++) {
+                Point q = tmp[j];
+//                System.out.printf("Index: %d | Working on %s & %s with slope %f%n", j, p, q, p.slopeTo(q));
+
+                if (p.slopeTo(q) == slopeTo) {
+                    if (minIndex == -1) {
+                        minIndex = j - 1;
                     }
+
+                    maxIndex = j;
                 }
+
+                slopeTo = p.slopeTo(q);
             }
 
-            for (int j = 0; j < items.length; j++) {
-                if (items[j] != null && items[j].size() > 3) {
-                    Point[] temp = new Point[items[j].size()];
-                    int index = 0;
-                    Iterator<Point> iterator = items[j].iterator();
-                    while (iterator.hasNext()) {
-                        temp[index++] = iterator.next();
-                    }
-                    Arrays.sort(temp);
-                    for (int k = 0; k < temp.length; k++) {
-                        System.out.print(temp[k]);
+//            System.out.printf("minIndex: %d, maxIndex: %d%n", minIndex, maxIndex);
 
-                        if (k < temp.length - 1) {
-                            System.out.print(" -> ");
-                        }
-                    }
-                    temp[0].drawTo(temp[temp.length - 1]);
-                    System.out.println();
+            if (minIndex > -1) {
+                Point[] results = Arrays.copyOfRange(tmp, minIndex, maxIndex + 1);
+                System.out.printf("size of result array: %d%n", results.length);
+                if (results.length + 1 > 3) {
+                    System.out.printf("Result: %s%s%n", p, Arrays.toString(results));
                 }
             }
         }
