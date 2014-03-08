@@ -27,9 +27,16 @@ public class Fast {
     }
 
     private void printAndDrawCollinearLineSegments() {
+        int absMinIndex = -1;
+        int absMaxIndex = -1;
+        Point absMinPoint = null;
+        boolean firstMatchFound = true;
         for (int i = 0; i < coordinates.length; i++) {
-            System.out.printf("Currently on %d iteration%n", i);
+//            System.out.printf("Currently on %d iteration%n", i);
             Point p = coordinates[i];
+            if (absMinPoint == null) {
+                absMinPoint = p;
+            }
             Point[] tmp = Arrays.copyOfRange(coordinates, i, coordinates.length);
             Arrays.sort(tmp);
             Arrays.sort(tmp, p.SLOPE_ORDER);
@@ -44,22 +51,50 @@ public class Fast {
                 if (p.slopeTo(q) == slopeTo) {
                     if (minIndex == -1) {
                         minIndex = j - 1;
+
+                        if (absMinIndex == -1 || absMinIndex > minIndex) {
+                            absMinIndex = i;
+                            absMinPoint = tmp[absMinIndex];
+                        }
                     }
 
                     maxIndex = j;
+
+                    if (absMaxIndex < maxIndex) {
+                        absMaxIndex = maxIndex;
+                    }
                 }
 
                 slopeTo = p.slopeTo(q);
             }
 
-//            System.out.printf("minIndex: %d, maxIndex: %d%n", minIndex, maxIndex);
+//            System.out.printf("minIndex: %d, maxIndex: %d | absMinIndex: %d, absMaxIndex: %d%n", minIndex, maxIndex, absMinIndex, absMaxIndex);
 
             if (minIndex > -1) {
-                Point[] results = Arrays.copyOfRange(tmp, minIndex, maxIndex + 1);
-                System.out.printf("size of result array: %d%n", results.length);
-                if (results.length + 1 > 3) {
-                    System.out.printf("Result: %s%s%n", p, Arrays.toString(results));
+//                Point[] results = Arrays.copyOfRange(tmp, minIndex, maxIndex + 1);
+                Point[] results = new Point[maxIndex - minIndex + 2];
+                results[0] = tmp[0];
+                int index = 1;
+                for (int k = minIndex; k <= maxIndex; k++) {
+                    results[index++] = tmp[k];
                 }
+                Arrays.sort(results);
+//                System.out.printf("size of result array: %d%n", results.length);
+                if (results.length > 3) {
+                    boolean isWithinMinMaxRange = minIndex >= absMinIndex && maxIndex < absMaxIndex;
+                    boolean isFirstElementTheSameAsAbsoluteFirst = results[0].compareTo(absMinPoint) == 0;
+//                    System.out.println("results[0] = " + results[0]);
+//                    System.out.println("absMinPoint = " + absMinPoint);
+//                    System.out.println("isWithinMinMaxRange = " + isWithinMinMaxRange);
+//                    System.out.println("isFirstElementTheSameAsAbsoluteFirst = " + isFirstElementTheSameAsAbsoluteFirst);
+//                    System.out.println("firstMatchFound = " + firstMatchFound);
+                    if (!isWithinMinMaxRange || (!isFirstElementTheSameAsAbsoluteFirst)) {
+                        System.out.printf("Result: %s%n", Arrays.toString(results));
+                    }
+
+                }
+                firstMatchFound = false;
+                absMinPoint = results[0];
             }
         }
     }
