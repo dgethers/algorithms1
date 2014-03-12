@@ -6,17 +6,20 @@
 
 public class Board {
 
-    // construct a board from an N-by-N array of blocks
+    private int[][] blocks;
+    private int N;
+
+    // construct a board from an N-by-N array of blocks (where blocks[i][j] = block in row i, column j)
     public Board(int[][] blocks) {
-        //TODO: Implement this
+        this.blocks = blocks.clone();
+        N = blocks.length;
+        //TODO: Check to ensure board is a valid grid of same number of columns and rows
     }
 
-    // (where blocks[i][j] = block in row i, column j)
+
     // board dimension N
     public int dimension() {
-        //TODO: Implement this
-
-        return 0;
+        return N;
     }
 
     // number of blocks out of place
@@ -35,24 +38,70 @@ public class Board {
 
     // is this board the goal board?
     public boolean isGoal() {
-        //TODO: Implement this
+        int blockValue = 1;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (i == N - 1 && j == N - 1) {
+                    if (blocks[N - 1][N - 1] != 0) {
+                        return false;
+                    }
+                } else {
+                    if (blocks[i][j] != blockValue++) {
+                        return false;
+                    }
+                }
+            }
+        }
 
-        return false;
+        return true;
     }
 
     // a board obtained by exchanging two adjacent blocks in the same row
     public Board twin() {
-        //TODO: Implement this
+        int[][] tiles = blocks.clone();
+        int randomI;
+        int randomJ;
+        do {
+            randomI = StdRandom.uniform(N);
+            randomJ = StdRandom.uniform(N);
+        } while (tiles[randomI][randomJ] == 0);
 
-        return null;
+        swap(tiles, randomI, randomJ);
+
+        return new Board(tiles);
+    }
+
+    private void swap(int[][] tiles, int i, int j) {
+        int newJ;
+        if (j > 0 && j < N - 1) { //go to right
+            newJ = j + 1;
+        } else { //go to left
+            newJ = j - 1;
+        }
+
+        int tmp = tiles[i][newJ];
+        tiles[i][newJ] = tiles[i][j];
+        tiles[i][j] = tmp;
     }
 
     // does this board equal y?
     public boolean equals(Object y) {
-        //TODO: Implement this
+        if (y == this) return true;
+        if (y == null) return false;
+        if (y.getClass() != this.getClass()) return false;
 
-        return false;
+        Board that = (Board) y;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (blocks[i][j] != that.blocks[i][j]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
+
 
     // all neighboring boards
     public Iterable<Board> neighbors() {
@@ -63,10 +112,14 @@ public class Board {
 
     // string representation of the board (in the output format specified below)
     public String toString() {
-
-        //TODO: Implement this
-        return null;
+        StringBuilder s = new StringBuilder();
+        s.append(N).append("\n");
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                s.append(String.format("%2d ", blocks[i][j]));
+            }
+            s.append("\n");
+        }
+        return s.toString();
     }
 }
-
-
