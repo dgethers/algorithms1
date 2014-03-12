@@ -1,79 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list id="a029c61a-e77d-4e05-9e9e-ddace77cb499" name="Default" comment="New workspace changes." />
-    <list default="true" id="db549b56-4947-4f9f-9e40-f9b41eb0243d" name="Collinear" comment="Implemented slopeTo, compareTo and slope comparator for Point. Created test cases for Point.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Fast___Rs1423.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Fast.java" afterPath="$PROJECT_DIR$/src/Fast.java" />
-    </list>
-    <list id="cd853fbf-9e35-435b-867f-2770bc5dcce2" name="8puzzle" comment="Initial">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle00.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle01.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle02.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle03.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle04.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle05.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle06.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle07.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle08.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle09.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle10.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle11.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle12.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle13.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle14.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle15.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle16.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle17.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle18.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle19.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle20.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle21.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle22.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle23.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle24.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle25.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle26.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle27.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle28.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle29.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle2x2-unsolvable1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle2x2-unsolvable2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle2x2-unsolvable3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle30.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle31.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle32.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle33.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle34.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle35.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle36.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle37.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle38.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle39.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle3x3-unsolvable.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle3x3-unsolvable1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle3x3-unsolvable2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle40.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle41.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle42.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle43.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle44.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle45.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle46.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle47.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle48.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle49.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle4x4-78.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle4x4-80.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle4x4-hard1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle4x4-hard2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle4x4-unsolvable.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in/8puzzle/puzzle50.txt" />
-    </list>
-    <list id="836877a7-54c1-4cbd-b193-68d5f0dd1cab" name="Config" comment="Workspace changes and run configuration additions.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+    <list id="a029c61a-e77d-4e05-9e9e-ddace77cb499" name="Default" comment="New workspace changes.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
+    <list id="db549b56-4947-4f9f-9e40-f9b41eb0243d" name="Collinear" comment="Implemented slopeTo, compareTo and slope comparator for Point. Created test cases for Point.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    </list>
+    <list default="true" id="cd853fbf-9e35-435b-867f-2770bc5dcce2" name="8puzzle" comment="Create unit test class for Board class. Implemented most of the functionality in Board class." />
     <ignored path="algorithms1.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
@@ -175,73 +109,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Point.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Point.java">
+      <file leaf-file-name="Board.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="11" selection-start="2169" selection-end="2169" vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="1650">
+            <state line="78" column="25" selection-start="1937" selection-end="1937" vertical-scroll-proportion="2.2941177" vertical-offset="0" max-vertical-offset="2210">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Brute.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Brute.java">
+      <file leaf-file-name="PuzzleChecker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PuzzleChecker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="45" selection-start="977" selection-end="983" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="870">
+            <state line="16" column="41" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fast.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Fast.java">
+      <file leaf-file-name="PointPlotter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PointPlotter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="17" selection-start="2898" selection-end="3803" vertical-scroll-proportion="1.0558465" vertical-offset="835" max-vertical-offset="1725">
+            <state line="15" column="17" selection-start="552" selection-end="558" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deployment.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/deployment.xml">
+      <file leaf-file-name="MinPQ.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/MinPQ.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="38" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+            <state line="45" column="69" selection-start="1938" selection-end="1938" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="4267">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BoardTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/BoardTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="5" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Arrays.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
+        <entry file="jar://C:/Program Files/Java/jdk1.6.0_30/src.zip!/java/util/Arrays.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2217" column="26" selection-start="96926" selection-end="96926" vertical-scroll-proportion="0.0" vertical-offset="32580" max-vertical-offset="54840">
+            <state line="3757" column="26" selection-start="151518" selection-end="151518" vertical-scroll-proportion="0.0" vertical-offset="63082" max-vertical-offset="70941">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="input6.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/in/collinear/input6.txt">
+      <file leaf-file-name="puzzle01.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle01.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="25" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input8.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/in/collinear/input8.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="112" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WeightedQuickUnionUF.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/WeightedQuickUnionUF.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="15" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="1785">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
               <folding />
             </state>
           </provider>
@@ -281,14 +208,15 @@
         <option value="$PROJECT_DIR$/src/Brute.java" />
         <option value="$PROJECT_DIR$/src/ExerciseNonsense.java" />
         <option value="$PROJECT_DIR$/src/Fast.java" />
+        <option value="$PROJECT_DIR$/src/PuzzleChecker.java" />
+        <option value="$PROJECT_DIR$/src/Board.java" />
+        <option value="$PROJECT_DIR$/test/BoardTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="57" />
-    <option name="y" value="22" />
-    <option name="width" value="1623" />
-    <option name="height" value="1010" />
+    <option name="width" value="1284" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -316,6 +244,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -359,13 +288,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="in" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="algorithms1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="in" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="8puzzle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -400,21 +360,11 @@
       <recent name="C:\Development\algorithms1\in\percolation" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Fast - Input 10">
+  <component name="RunManager" selected="JUnit.BoardTest">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails" singleton="true">
-      <module name="" />
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="depsClasspath" value="false" />
-      <setting name="passParentEnv" value="true" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -573,23 +523,52 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="25">
-      <item index="0" class="java.lang.String" itemvalue="Application.Brute - Input 6" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Brute - Input 100" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Brute - Input 200" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Brute - Grid5x5" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Brute - rs1423" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Brute - Mystery10089" />
-      <item index="6" class="java.lang.String" itemvalue="Application.Fast - Input 6" />
-      <item index="7" class="java.lang.String" itemvalue="Application.Fast - Input 8" />
-      <item index="8" class="java.lang.String" itemvalue="Application.Fast - Input 9" />
-      <item index="9" class="java.lang.String" itemvalue="Application.Fast - Input 10" />
-      <item index="10" class="java.lang.String" itemvalue="Application.Fast - Input 20" />
-      <item index="11" class="java.lang.String" itemvalue="Application.Fast - Input 50" />
-      <item index="12" class="java.lang.String" itemvalue="Application.Fast - Input 300" />
-      <item index="13" class="java.lang.String" itemvalue="Application.Fast - Mystery10089" />
-      <item index="14" class="java.lang.String" itemvalue="Application.Fast - Kw1260" />
-      <item index="15" class="java.lang.String" itemvalue="Application.Fast - Rs1423" />
+    <configuration default="false" name="BoardTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="algorithms1" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="26">
+      <item index="0" class="java.lang.String" itemvalue="Application.Fast - rs1423" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Brute - Input 6" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Brute - Input 100" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Brute - Input 200" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Brute - Grid5x5" />
+      <item index="5" class="java.lang.String" itemvalue="Application.Brute - rs1423" />
+      <item index="6" class="java.lang.String" itemvalue="Application.Brute - Mystery10089" />
+      <item index="7" class="java.lang.String" itemvalue="Application.Fast - Input 6" />
+      <item index="8" class="java.lang.String" itemvalue="Application.Fast - Input 8" />
+      <item index="9" class="java.lang.String" itemvalue="Application.Fast - Input 9" />
+      <item index="10" class="java.lang.String" itemvalue="Application.Fast - Input 10" />
+      <item index="11" class="java.lang.String" itemvalue="Application.Fast - Input 20" />
+      <item index="12" class="java.lang.String" itemvalue="Application.Fast - Input 50" />
+      <item index="13" class="java.lang.String" itemvalue="Application.Fast - Input 300" />
+      <item index="14" class="java.lang.String" itemvalue="Application.Fast - Mystery10089" />
+      <item index="15" class="java.lang.String" itemvalue="Application.Fast - Kw1260" />
       <item index="16" class="java.lang.String" itemvalue="Application.PercolationStats - 2 100000" />
       <item index="17" class="java.lang.String" itemvalue="Application.PercolationStats - 200 100" />
       <item index="18" class="java.lang.String" itemvalue="Application.PercolationStats - 2 10000" />
@@ -599,6 +578,7 @@
       <item index="22" class="java.lang.String" itemvalue="JUnit.DequeTest" />
       <item index="23" class="java.lang.String" itemvalue="JUnit.RandomizedQueueTest" />
       <item index="24" class="java.lang.String" itemvalue="JUnit.PointTest" />
+      <item index="25" class="java.lang.String" itemvalue="JUnit.BoardTest" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -610,7 +590,6 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="a029c61a-e77d-4e05-9e9e-ddace77cb499" name="Default" comment="" />
       <changelist id="cd853fbf-9e35-435b-867f-2770bc5dcce2" name="8puzzle" comment="" />
-      <changelist id="836877a7-54c1-4cbd-b193-68d5f0dd1cab" name="Config" comment="" />
       <created>1391626930212</created>
       <updated>1391626930212</updated>
       <workItem from="1391626931521" duration="3479000" />
@@ -791,7 +770,15 @@
       <created>1394538853553</created>
       <updated>1394538853553</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Added test class for PuzzleChecker.">
+      <created>1394657616642</created>
+      <updated>1394657616642</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Create unit test class for Board class. Implemented most of the functionality in Board class.">
+      <created>1394667967887</created>
+      <updated>1394667967887</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -818,33 +805,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="22" width="1623" height="1010" extended-state="0" />
+    <frame x="0" y="0" width="1284" height="1050" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3453159" sideWeight="0.49968374" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3441911" sideWeight="0.49968374" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45424837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45276874" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34640524" sideWeight="0.50031626" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278867" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278867" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32681867" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3276414" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18659076" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43028322" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953826" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3880266" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42996743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953826" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -889,8 +876,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Bug fix for false full sites on top row." />
-    <MESSAGE value="Throw IllegalArgumentException for inputs less than or equal to zero." />
     <MESSAGE value="New workspace changes." />
     <MESSAGE value="Randomized Queues and Deques." />
     <MESSAGE value="Fix and test for creation of unique independent iterators." />
@@ -914,7 +899,9 @@
     <MESSAGE value="Fixed subsegments for some cases." />
     <MESSAGE value="Workspace changes and run configuration additions." />
     <MESSAGE value="Collinear Fast run configurations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Collinear Fast run configurations." />
+    <MESSAGE value="Added test class for PuzzleChecker." />
+    <MESSAGE value="Create unit test class for Board class. Implemented most of the functionality in Board class." />
+    <option name="LAST_COMMIT_MESSAGE" value="Create unit test class for Board class. Implemented most of the functionality in Board class." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -926,66 +913,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Percolation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="37" selection-start="1196" selection-end="1196" vertical-scroll-proportion="-0.12921348" vertical-offset="625" max-vertical-offset="1515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PercolationStats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="154" selection-start="225" selection-end="225" vertical-scroll-proportion="0.16853933" vertical-offset="0" max-vertical-offset="1140">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RandomizedQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="944" selection-end="944" vertical-scroll-proportion="-0.3988764" vertical-offset="1030" max-vertical-offset="1920">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/PercolationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="62" selection-start="3773" selection-end="3777" vertical-scroll-proportion="0.0" vertical-offset="1330" max-vertical-offset="2220" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/Stack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="13" selection-start="1612" selection-end="1612" vertical-scroll-proportion="0.0" vertical-offset="243" max-vertical-offset="2280" />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/src.zip!/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="17" selection-start="5059" selection-end="5059" vertical-scroll-proportion="1.8539326" vertical-offset="0" max-vertical-offset="2865" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PointPlotter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="17" selection-start="552" selection-end="558" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/collinear/input9.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/collinear/input9.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="892" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/in/collinear/input10.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="892" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/in/collinear/input80.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1004,16 +931,6 @@
     <entry file="file://$PROJECT_DIR$/in/collinear/input6.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/src.zip!/java/lang/Double.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="971" column="0" selection-start="38135" selection-end="38135" vertical-scroll-proportion="0.0" vertical-offset="14033" max-vertical-offset="14535" />
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/src.zip!/java/util/TimSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="20" selection-start="6061" selection-end="6061" vertical-scroll-proportion="0.0" vertical-offset="2063" max-vertical-offset="13665" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/PointTest.java">
@@ -1146,44 +1063,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/in/collinear/input6.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="25" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <folding />
-        </state>
+        <state line="7" column="0" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="221" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/in/collinear/input8.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="112" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2217" column="26" selection-start="96926" selection-end="96926" vertical-scroll-proportion="0.0" vertical-offset="32580" max-vertical-offset="54840">
-          <folding />
-        </state>
+        <state line="9" column="0" selection-start="106" selection-end="106" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="255" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/in/collinear/mystery10089.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-262.73996" vertical-offset="150550" max-vertical-offset="151440">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-262.73996" vertical-offset="150550" max-vertical-offset="151440" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/in/collinear/input10000.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="65" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0" vertical-offset="149215" max-vertical-offset="150105">
-          <folding />
-        </state>
+        <state line="26" column="65" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0" vertical-offset="149215" max-vertical-offset="150105" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/WeightedQuickUnionUF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="15" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1785">
-          <folding />
-        </state>
+        <state line="61" column="15" selection-start="2338" selection-end="2338" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="1785" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -1193,16 +1093,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/DequeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="159" selection-start="5497" selection-end="5497" vertical-scroll-proportion="0.35253054" vertical-offset="2498" max-vertical-offset="3390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/deployment.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="38" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+        <state line="5" column="0" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
           <folding />
         </state>
       </provider>
@@ -1216,7 +1109,97 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Fast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="17" selection-start="2898" selection-end="3803" vertical-scroll-proportion="1.0558465" vertical-offset="835" max-vertical-offset="1725">
+        <state line="15" column="5" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="1904">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/DequeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="128" selection-end="187" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3842">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle06.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle3x3-unsolvable1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle12.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="911" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle01.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle19.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="508" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle05.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="508" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/in/8puzzle/puzzle00.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PointPlotter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="17" selection-start="552" selection-end="558" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/algs4.jar!/MinPQ.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="69" selection-start="1938" selection-end="1938" vertical-scroll-proportion="0.0" vertical-offset="104" max-vertical-offset="4267">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PuzzleChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="41" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.6.0_30/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3757" column="26" selection-start="151518" selection-end="151518" vertical-scroll-proportion="0.0" vertical-offset="63082" max-vertical-offset="70941">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/BoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="5" selection-start="381" selection-end="381" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="25" selection-start="1937" selection-end="1937" vertical-scroll-proportion="2.2941177" vertical-offset="0" max-vertical-offset="2210">
           <folding />
         </state>
       </provider>
