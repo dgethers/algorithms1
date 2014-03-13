@@ -24,9 +24,23 @@ public class Board {
 
     // number of blocks out of place
     public int hamming() {
-        //TODO: Implement this
+        int correctValue = 1;
+        int countOfBlockInPlace = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (i == N - 1 && j == N - 1) {
+                    if (blocks[N - 1][N - 1] != 0) {
+                        countOfBlockInPlace++;
+                    }
+                } else {
+                    if (blocks[i][j] != correctValue++) {
+                        countOfBlockInPlace++;
+                    }
+                }
+            }
+        }
 
-        return 0;
+        return countOfBlockInPlace;
     }
 
     // sum of Manhattan distances between blocks and goal
@@ -65,6 +79,7 @@ public class Board {
             randomI = StdRandom.uniform(N);
             randomJ = StdRandom.uniform(N);
         } while (tiles[randomI][randomJ] == 0);
+        System.out.printf("randomI:%d, randomJ:%d%n", randomI, randomJ);
 
         swap(tiles, randomI, randomJ);
 
@@ -73,12 +88,15 @@ public class Board {
 
     private void swap(int[][] tiles, int i, int j) {
         int newJ;
-        if (j > 0 && j < N - 1) { //go to right
+        if (j < N - 1) { //go to right
             newJ = j + 1;
-        } else { //go to left
+        } else if (j > 0) { //go to left
             newJ = j - 1;
+        } else { //TODO: Possible dead code. Remove if so.
+            newJ = j;
         }
 
+        System.out.printf("i:%d, j:%d newJ:%d%n", i, j, newJ);
         int tmp = tiles[i][newJ];
         tiles[i][newJ] = tiles[i][j];
         tiles[i][j] = tmp;

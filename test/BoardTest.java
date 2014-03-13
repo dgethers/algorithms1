@@ -72,4 +72,16 @@ public class BoardTest {
         }
         assertTrue(matchCount == 1);
     }
+
+    @Test
+    public void hammingWithOutOfPlaceBlocks() {
+        Board board = new Board(new int[][]{{2, 1, 3}, {4, 5, 7}, {6, 8, 0}});
+        assertEquals(4, board.hamming());
+    }
+
+    @Test
+    public void hammingWithNoOutOfPlaceBlocks() {
+        Board board = new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}});
+        assertEquals(0, board.hamming());
+    }
 }
