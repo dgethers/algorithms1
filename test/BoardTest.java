@@ -9,6 +9,8 @@ import static junit.framework.Assert.*;
  */
 public class BoardTest {
 
+    //TODO: Immutable test
+
     @Test
     public void equalBoardsWithSameValues() {
         Board board1 = new Board(new int[][]{{1, 2}, {3, 0}});
@@ -83,5 +85,17 @@ public class BoardTest {
     public void hammingWithNoOutOfPlaceBlocks() {
         Board board = new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}});
         assertEquals(0, board.hamming());
+    }
+
+    @Test
+    public void manhattanWith3Moves() {
+        Board board = new Board(new int[][]{{1, 0, 3}, {4, 2, 5}, {7, 8, 6}});
+        assertEquals(3, board.manhattan());
+    }
+
+    @Test
+    public void manhattanWith5Moves() {
+        Board board = new Board(new int[][]{{4, 1, 3}, {0, 2, 5}, {7, 8, 6}});
+        assertEquals(5, board.manhattan());
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * User: outzider
  * Date: 3/11/14
@@ -9,11 +11,59 @@ public class Board {
     private int[][] blocks;
     private int N;
 
+    private int[][] solvedTilePositions;
+    private Point[] correctTilePositions;
+
+    private static class Point {
+        private Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        private int x;
+        private int y;
+
+        @Override
+        public String toString() {
+            return String.format("(x:%d, y:%d)", x, y);
+        }
+    }
+
     // construct a board from an N-by-N array of blocks (where blocks[i][j] = block in row i, column j)
     public Board(int[][] blocks) {
         this.blocks = blocks.clone();
         N = blocks.length;
-        //TODO: Check to ensure board is a valid grid of same number of columns and rows
+
+        createReferenceGoalBoard();
+        correctTilePositions = new Point[N * N];
+        int row = 0;
+        int column = 0;
+        for (int i = 0; i < correctTilePositions.length; i++) {
+            if (i == 0) {
+                correctTilePositions[i] = new Point(N - 1, N - 1);
+            } else {
+                correctTilePositions[i] = new Point(row, column++);
+                if (i % N == 0) {
+                    row++;
+                    column = 0;
+                }
+            }
+        }
+        System.out.println("correctTilePositions array: " + Arrays.toString(correctTilePositions));
+    }
+
+    private void createReferenceGoalBoard() {
+        solvedTilePositions = new int[N][N];
+        int currentValue = 1;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (i == N - 1 && j == N - 1) {
+                    solvedTilePositions[i][j] = 0;
+                } else {
+                    solvedTilePositions[i][j] = currentValue++;
+                }
+            }
+        }
     }
 
 
@@ -45,29 +95,24 @@ public class Board {
 
     // sum of Manhattan distances between blocks and goal
     public int manhattan() {
-        //TODO: Implement this
-
-        return 0;
-    }
-
-    // is this board the goal board?
-    public boolean isGoal() {
-        int blockValue = 1;
+        int sum = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (i == N - 1 && j == N - 1) {
-                    if (blocks[N - 1][N - 1] != 0) {
-                        return false;
-                    }
-                } else {
-                    if (blocks[i][j] != blockValue++) {
-                        return false;
-                    }
+                if (blocks[i][j] != solvedTilePositions[i][j]) {
+                    Point correctPosition = correctTilePositions[blocks[i][j]];
+                    System.out.printf("current (%d, %d) with value %d, expected place is: (%d, %d)%n", i, j, blocks[i][j],
+                            correctPosition.x, correctPosition.y);
                 }
             }
         }
 
-        return true;
+
+        return sum;
+    }
+
+    // is this board the goal board?
+    public boolean isGoal() {
+        return Arrays.deepEquals(solvedTilePositions, blocks);
     }
 
     // a board obtained by exchanging two adjacent blocks in the same row
@@ -79,7 +124,7 @@ public class Board {
             randomI = StdRandom.uniform(N);
             randomJ = StdRandom.uniform(N);
         } while (tiles[randomI][randomJ] == 0);
-        System.out.printf("randomI:%d, randomJ:%d%n", randomI, randomJ);
+//        System.out.printf("randomI:%d, randomJ:%d%n", randomI, randomJ);
 
         swap(tiles, randomI, randomJ);
 
@@ -96,7 +141,7 @@ public class Board {
             newJ = j;
         }
 
-        System.out.printf("i:%d, j:%d newJ:%d%n", i, j, newJ);
+//        System.out.printf("i:%d, j:%d newJ:%d%n", i, j, newJ);
         int tmp = tiles[i][newJ];
         tiles[i][newJ] = tiles[i][j];
         tiles[i][j] = tmp;
@@ -139,5 +184,10 @@ public class Board {
             s.append("\n");
         }
         return s.toString();
+    }
+
+    public static void main(String[] args) {
+        Board board = new Board(new int[][]{{1, 0, 3}, {4, 2, 5}, {7, 8, 6}});
+        System.out.println(board.manhattan());
     }
 }
