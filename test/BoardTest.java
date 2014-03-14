@@ -76,26 +76,38 @@ public class BoardTest {
     }
 
     @Test
-    public void hammingWithOutOfPlaceBlocks() {
-        Board board = new Board(new int[][]{{2, 1, 3}, {4, 5, 7}, {6, 8, 0}});
-        assertEquals(4, board.hamming());
-    }
-
-    @Test
-    public void hammingWithNoOutOfPlaceBlocks() {
+    public void hammingMethodWithSolvedPuzzle() {
         Board board = new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}});
         assertEquals(0, board.hamming());
     }
 
     @Test
-    public void manhattanWith3Moves() {
-        Board board = new Board(new int[][]{{1, 0, 3}, {4, 2, 5}, {7, 8, 6}});
-        assertEquals(3, board.manhattan());
+    public void hammingMethodWithFiveOutOfPlaceBlocks() {
+        Board board = new Board(new int[][]{{8, 1, 3}, {4, 0, 2}, {7, 6, 5}});
+        assertEquals(5, board.hamming());
     }
 
     @Test
-    public void manhattanWith5Moves() {
+    public void hammingMethodWithFourOutOfPlaceBlocks() {
+        Board board = new Board(new int[][]{{1, 0, 3}, {4, 2, 5}, {7, 8, 6}});
+        assertEquals(3, board.hamming());
+    }
+
+    @Test
+    public void hammingMethodWithSixOutOfPlaceBlocks() {
         Board board = new Board(new int[][]{{4, 1, 3}, {0, 2, 5}, {7, 8, 6}});
-        assertEquals(5, board.manhattan());
+        assertEquals(5, board.hamming());
+    }
+
+    @Test
+    public void manhattanMethodWithZeroMoves() {
+        Board board = new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}});
+        assertEquals(0, board.manhattan());
+    }
+
+    @Test
+    public void manhattanMethodWithTenMoves() {
+        Board board = new Board(new int[][]{{8, 1, 3}, {4, 0, 2}, {7, 6, 5}});
+        assertEquals(10, board.manhattan());
     }
 }

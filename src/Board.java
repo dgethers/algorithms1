@@ -11,7 +11,7 @@ public class Board {
     private int[][] blocks;
     private int N;
 
-    private int[][] solvedTilePositions;
+    protected int[][] solvedTilePositions;
     private Point[] correctTilePositions;
 
     private static class Point {
@@ -49,7 +49,7 @@ public class Board {
                 }
             }
         }
-        System.out.println("correctTilePositions array: " + Arrays.toString(correctTilePositions));
+//        System.out.println("correctTilePositions array: " + Arrays.toString(correctTilePositions));
     }
 
     private void createReferenceGoalBoard() {
@@ -74,16 +74,12 @@ public class Board {
 
     // number of blocks out of place
     public int hamming() {
-        int correctValue = 1;
         int countOfBlockInPlace = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (i == N - 1 && j == N - 1) {
-                    if (blocks[N - 1][N - 1] != 0) {
-                        countOfBlockInPlace++;
-                    }
-                } else {
-                    if (blocks[i][j] != correctValue++) {
+                if (blocks[i][j] != solvedTilePositions[i][j]) {
+//                    System.out.printf("block[%d][%d]=%d vs. solvedTilePositions=%d%n", i, j, blocks[i][j], solvedTilePositions[i][j]);
+                    if (blocks[i][j] != 0) {
                         countOfBlockInPlace++;
                     }
                 }
@@ -98,14 +94,42 @@ public class Board {
         int sum = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (blocks[i][j] != solvedTilePositions[i][j]) {
+                if (blocks[i][j] != solvedTilePositions[i][j] && blocks[i][j] != 0) {
+                    Point currentPosition = new Point(i, j);
                     Point correctPosition = correctTilePositions[blocks[i][j]];
-                    System.out.printf("current (%d, %d) with value %d, expected place is: (%d, %d)%n", i, j, blocks[i][j],
-                            correctPosition.x, correctPosition.y);
+//                    System.out.printf("current (%d, %d) with value %d, expected place is: (%d, %d)%n", i, j, blocks[i][j],
+//                            correctPosition.x, correctPosition.y);
+//                    System.out.printf("positions to move (%d,%d) to space (%d,%d) is: %d%n", i, j, correctPosition.x, correctPosition.y, moves);
+//                    sum = sum + (currentPosition.x - correctPosition.x) + (correctPosition.y - currentPosition.y);
+
+                    if (correctPosition.x == currentPosition.x) { //on the same x-axis, only move on y-axis
+                        if (correctPosition.y > currentPosition.y) {
+//                            System.out.println(correctPosition.y - currentPosition.y);
+                            sum = sum + (correctPosition.y - currentPosition.y);
+                        } else {
+//                            System.out.println(currentPosition.y - correctPosition.y);
+                            sum = sum + (currentPosition.y - correctPosition.y);
+                        }
+                    } else if (correctPosition.x > currentPosition.x) {
+                        if (correctPosition.y > currentPosition.y) {
+//                            System.out.println((correctPosition.y - currentPosition.y) + (correctPosition.x - currentPosition.x));
+                            sum = sum + (correctPosition.y - currentPosition.y) + (correctPosition.x - currentPosition.x);
+                        } else {
+//                            System.out.println((currentPosition.y - correctPosition.y) + (correctPosition.x - currentPosition.x));
+                            sum = sum + (currentPosition.y - correctPosition.y) + (correctPosition.x - currentPosition.x);
+                        }
+                    } else {
+                        if (correctPosition.y > currentPosition.y) {
+//                            System.out.println((correctPosition.y - currentPosition.y) + (currentPosition.x - correctPosition.x));
+                            sum = sum + (correctPosition.y - currentPosition.y) + (currentPosition.x - correctPosition.x);
+                        } else {
+//                            System.out.println((currentPosition.y - correctPosition.y) + (currentPosition.x - correctPosition.x));
+                            sum = sum + (currentPosition.y - correctPosition.y) + (currentPosition.x - correctPosition.x);
+                        }
+                    }
                 }
             }
         }
-
 
         return sum;
     }
@@ -187,7 +211,11 @@ public class Board {
     }
 
     public static void main(String[] args) {
-        Board board = new Board(new int[][]{{1, 0, 3}, {4, 2, 5}, {7, 8, 6}});
-        System.out.println(board.manhattan());
+        Board board = new Board(new int[][]{{8, 1, 3}, {4, 0, 2}, {7, 6, 5}});
+        System.out.println("should be 10 but is: " + board.manhattan());
+
+        Board referenceBoard = new Board(board.solvedTilePositions);
+//        System.out.println("Printing Solved Reference Board");
+//        System.out.println(referenceBoard);
     }
 }
