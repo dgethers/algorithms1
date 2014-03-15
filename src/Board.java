@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Board {
 
-    private int[][] blocks;
+    private final int[][] blocks;
     private int N;
 
     protected int[][] solvedTilePositions;
@@ -35,6 +35,10 @@ public class Board {
         N = blocks.length;
 
         createReferenceGoalBoard();
+        createCorrectPositionReferenceArray();
+    }
+
+    private void createCorrectPositionReferenceArray() {
         correctTilePositions = new Point[N * N];
         int row = 0;
         int column = 0;
@@ -49,7 +53,6 @@ public class Board {
                 }
             }
         }
-//        System.out.println("correctTilePositions array: " + Arrays.toString(correctTilePositions));
     }
 
     private void createReferenceGoalBoard() {
@@ -97,10 +100,6 @@ public class Board {
                 if (blocks[i][j] != solvedTilePositions[i][j] && blocks[i][j] != 0) {
                     Point currentPosition = new Point(i, j);
                     Point correctPosition = correctTilePositions[blocks[i][j]];
-//                    System.out.printf("current (%d, %d) with value %d, expected place is: (%d, %d)%n", i, j, blocks[i][j],
-//                            correctPosition.x, correctPosition.y);
-//                    System.out.printf("positions to move (%d,%d) to space (%d,%d) is: %d%n", i, j, correctPosition.x, correctPosition.y, moves);
-//                    sum = sum + (currentPosition.x - correctPosition.x) + (correctPosition.y - currentPosition.y);
 
                     if (correctPosition.x == currentPosition.x) { //on the same x-axis, only move on y-axis
                         if (correctPosition.y > currentPosition.y) {
@@ -159,16 +158,24 @@ public class Board {
         int newJ;
         if (j < N - 1) { //go to right
             newJ = j + 1;
-        } else if (j > 0) { //go to left
+        } else { //go to left
             newJ = j - 1;
-        } else { //TODO: Possible dead code. Remove if so.
-            newJ = j;
         }
 
 //        System.out.printf("i:%d, j:%d newJ:%d%n", i, j, newJ);
-        int tmp = tiles[i][newJ];
-        tiles[i][newJ] = tiles[i][j];
-        tiles[i][j] = tmp;
+
+        swapTile(tiles, i, j, i, newJ);
+    }
+
+    private int[][] deepCopyOfArray(int[][] source) {
+        int[][] copy = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                copy[i][j] = source[i][j];
+            }
+        }
+
+        return copy;
     }
 
     // does this board equal y?
@@ -192,9 +199,54 @@ public class Board {
 
     // all neighboring boards
     public Iterable<Board> neighbors() {
-        //TODO: Implement this
+        //up, left, down, right
+        Queue<Board> neighbors = new Queue<Board>();
+        int emptyI = 0, emptyJ = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (blocks[i][j] == 0) {
+                    emptyI = i;
+                    emptyJ = j;
+                }
+            }
+        }
 
-        return null;
+        if (emptyI > 0) { //up
+            int[][] clone = deepCopyOfArray(blocks);
+            swapTile(clone, emptyI, emptyJ, emptyI - 1, emptyJ);
+            final Board item = new Board(clone);
+            neighbors.enqueue(item);
+        }
+
+        if (emptyJ > 0) { //left
+            int[][] clone = deepCopyOfArray(blocks);
+            swapTile(clone, emptyI, emptyJ, emptyI, emptyJ - 1);
+            final Board item = new Board(clone);
+            neighbors.enqueue(item);
+        }
+
+        if (emptyI < N - 1) { //down
+            int[][] clone = deepCopyOfArray(blocks);
+            swapTile(clone, emptyI, emptyJ, emptyI + 1, emptyJ);
+            Board item = new Board(clone);
+            neighbors.enqueue(item);
+        }
+
+        if (emptyJ < N - 1) { //right
+            int[][] clone = deepCopyOfArray(blocks);
+            swapTile(clone, emptyI, emptyJ, emptyI, emptyJ + 1);
+            Board item = new Board(clone);
+            neighbors.enqueue(item);
+        }
+
+
+        return neighbors;
+    }
+
+    private void swapTile(int[][] tiles, int originI, int originJ, int destinationI, int destinationJ) {
+        int tmp = tiles[destinationI][destinationJ];
+        tiles[destinationI][destinationJ] = tiles[originI][originJ];
+        tiles[originI][originJ] = tmp;
     }
 
     // string representation of the board (in the output format specified below)
@@ -211,11 +263,5 @@ public class Board {
     }
 
     public static void main(String[] args) {
-        Board board = new Board(new int[][]{{8, 1, 3}, {4, 0, 2}, {7, 6, 5}});
-        System.out.println("should be 10 but is: " + board.manhattan());
-
-        Board referenceBoard = new Board(board.solvedTilePositions);
-//        System.out.println("Printing Solved Reference Board");
-//        System.out.println(referenceBoard);
     }
 }

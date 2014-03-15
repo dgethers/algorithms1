@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static junit.framework.Assert.*;
 
 /**
@@ -8,8 +10,6 @@ import static junit.framework.Assert.*;
  * Time: 9:40 AM
  */
 public class BoardTest {
-
-    //TODO: Immutable test
 
     @Test
     public void equalBoardsWithSameValues() {
@@ -109,5 +109,23 @@ public class BoardTest {
     public void manhattanMethodWithTenMoves() {
         Board board = new Board(new int[][]{{8, 1, 3}, {4, 0, 2}, {7, 6, 5}});
         assertEquals(10, board.manhattan());
+    }
+
+    @Test
+    public void getBoardNeighbors() {
+        Board board = new Board(new int[][]{{8, 1, 3}, {4, 2, 0}, {7, 6, 5}});
+        Iterator<Board> neighbors = board.neighbors().iterator();
+
+        Board[] validNeighbors = new Board[3];
+        validNeighbors[0] = new Board(new int[][]{{8, 1, 0}, {4, 2, 3}, {7, 6, 5}});
+        validNeighbors[1] = new Board(new int[][]{{8, 1, 3}, {4, 0, 2}, {7, 6, 5}});
+        validNeighbors[2] = new Board(new int[][]{{8, 1, 3}, {4, 2, 5}, {7, 6, 0}});
+
+        int index = 0;
+        while (neighbors.hasNext()) {
+            Board neighbor = neighbors.next();
+            Board validNeighbor = validNeighbors[index++];
+            assertTrue(neighbor.equals(validNeighbor));
+        }
     }
 }
