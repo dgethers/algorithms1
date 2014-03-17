@@ -5,30 +5,88 @@
  */
 public class Solver {
 
-    // find a solution to the initial board (using the A* algorithm)
-    public Solver(Board initial) {
-        //TODO: Implement this
+    private static class SearchNode implements Comparable<SearchNode> {
+        private Board initialBoard;
+        private SearchNode previousSearchNode;
+        private int priority;
+
+        private SearchNode(Board initialBoard, SearchNode previousSearchNode, int priority) {
+            this.initialBoard = initialBoard;
+            this.previousSearchNode = previousSearchNode;
+            this.priority = priority;
+        }
+
+        @Override
+        public int compareTo(SearchNode o) {
+            return Integer.valueOf(priority).compareTo(o.priority);
+        }
     }
 
-    // is the initial board solvable?
-    public boolean isSolvable() {
-        //TODO: Implement this
+    private MinPQ<SearchNode> minPQ;
+    private Board initial;
+    private int totalMoves;
+    private Stack<Board> solution;
+
+    // find a solution to the initial board (using the A* algorithm)
+    public Solver(Board initial) {
+        this.initial = initial;
+        minPQ = new MinPQ<SearchNode>();
+        solution = new Stack<Board>();
+
+        minPQ.insert(new SearchNode(initial, null, initial.manhattan()));
+        Board prevBoard = null;
+        while (!minPQ.isEmpty()) {
+            SearchNode current = minPQ.delMin();
+            Board board = current.initialBoard;
+            solution.push(board);
+            SearchNode prevSearchNode = current.previousSearchNode;
+            if (prevSearchNode != null) {
+                prevBoard = prevSearchNode.initialBoard;
+            }
+
+            if (current.initialBoard.isGoal()) {
+                System.out.println("Found solution");
+                break;
+            }
+            totalMoves++;
+
+            for (Board nextBoard : board.neighbors()) {
+                if (!doesBoardMatchPreviousSearchEntries(current, nextBoard)) {
+                    minPQ.insert(new SearchNode(nextBoard, current, nextBoard.manhattan() + totalMoves));
+                }
+            }
+        }
+    }
+
+    private boolean doesBoardMatchPreviousSearchEntries(SearchNode searchNode, Board board) {
+        SearchNode previous = searchNode.previousSearchNode;
+        while (previous != null) {
+            if (previous.initialBoard.equals(board)) {
+                return true;
+            }
+
+            previous = previous.previousSearchNode;
+        }
 
         return false;
     }
 
-    // min number of moves to solve initial board; -1 if no solution
-    public int moves() {
-        //TODO: Implement this
+    // is the initial board solvable?
+    public boolean isSolvable() {
 
-        return 0;
+        return totalMoves > -1;
+    }
+
+    // min number of priority to solve initial board; -1 if no solution
+    public int moves() {
+
+        return totalMoves;
     }
 
     // sequence of boards in a shortest solution; null if no solution
     public Iterable<Board> solution() {
-        //TODO: Implement this
 
-        return null;
+        return solution;
     }
 
     // solve a slider puzzle (given below)
@@ -49,7 +107,7 @@ public class Solver {
         if (!solver.isSolvable())
             StdOut.println("No solution possible");
         else {
-            StdOut.println("Minimum number of moves = " + solver.moves());
+            StdOut.println("Minimum number of priority = " + solver.moves());
             for (Board board : solver.solution())
                 StdOut.println(board);
         }
