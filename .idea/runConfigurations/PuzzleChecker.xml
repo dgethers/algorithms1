@@ -1,0 +1,19 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="PuzzleChecker" type="Application" factoryName="Application" singleton="true" nameIsGenerated="true">
+    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <option name="MAIN_CLASS_NAME" value="PuzzleChecker" />
+    <option name="VM_PARAMETERS" value="" />
+    <option name="PROGRAM_PARAMETERS" value="in/8puzzle/puzzle00.txt in/8puzzle/puzzle01.txt in/8puzzle/puzzle02.txt in/8puzzle/puzzle03.txt in/8puzzle/puzzle04.txt in/8puzzle/puzzle05.txt in/8puzzle/puzzle06.txt in/8puzzle/puzzle07.txt in/8puzzle/puzzle08.txt in/8puzzle/puzzle09.txt in/8puzzle/puzzle10.txt in/8puzzle/puzzle11.txt in/8puzzle/puzzle12.txt in/8puzzle/puzzle13.txt in/8puzzle/puzzle14.txt in/8puzzle/puzzle15.txt in/8puzzle/puzzle16.txt in/8puzzle/puzzle17.txt in/8puzzle/puzzle18.txt in/8puzzle/puzzle19.txt in/8puzzle/puzzle20.txt in/8puzzle/puzzle21.txt in/8puzzle/puzzle22.txt in/8puzzle/puzzle50.txt" />
+    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    <option name="ALTERNATIVE_JRE_PATH" value="" />
+    <option name="ENABLE_SWING_INSPECTOR" value="false" />
+    <option name="ENV_VARIABLES" />
+    <option name="PASS_PARENT_ENVS" value="true" />
+    <module name="algorithms1" />
+    <envs />
+    <RunnerSettings RunnerId="Run" />
+    <ConfigurationWrapper RunnerId="Run" />
+    <method />
+  </configuration>
+</component>
