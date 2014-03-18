@@ -22,39 +22,54 @@ public class Solver {
         }
     }
 
-    private MinPQ<SearchNode> minPQ;
-    private Board initial;
     private int totalMoves;
-    private Stack<Board> solution;
+    private SearchNode goalBoard;
+    private boolean isSolvable = false;
 
     // find a solution to the initial board (using the A* algorithm)
-    public Solver(Board initial) {
-        this.initial = initial;
-        minPQ = new MinPQ<SearchNode>();
-        solution = new Stack<Board>();
+    public Solver(Board initialBoard) {
+        solve(initialBoard);
+    }
 
-        minPQ.insert(new SearchNode(initial, null, initial.manhattan()));
-        Board prevBoard = null;
-        while (!minPQ.isEmpty()) {
-            SearchNode current = minPQ.delMin();
-            Board board = current.initialBoard;
-            solution.push(board);
-            SearchNode prevSearchNode = current.previousSearchNode;
-            if (prevSearchNode != null) {
-                prevBoard = prevSearchNode.initialBoard;
+    private void solve(Board initialBoard) {
+        MinPQ<SearchNode> initialMinPQ = new MinPQ<SearchNode>();
+        MinPQ<SearchNode> twinMinPQ = new MinPQ<SearchNode>();
+
+        initialMinPQ.insert(new SearchNode(initialBoard, null, initialBoard.manhattan()));
+        Board twin = initialBoard.twin();
+        twinMinPQ.insert(new SearchNode(twin, null, twin.manhattan()));
+
+        boolean keepProcessing = true;
+        while (keepProcessing) {
+            SearchNode current = initialMinPQ.delMin();
+            SearchNode twinCurrent = twinMinPQ.delMin();
+
+            Board currentBoard = current.initialBoard;
+            Board twinBoard = twinCurrent.initialBoard;
+
+            if (currentBoard.isGoal()) {
+                goalBoard = current;
+                isSolvable = true;
+                keepProcessing = false;
             }
 
-            if (current.initialBoard.isGoal()) {
-                System.out.println("Found solution");
-                break;
+            if (twinBoard.isGoal() && initialMinPQ.size() > 0) { //twin is solvable but original still has nodes
+                keepProcessing = false;
             }
-            totalMoves++;
 
-            for (Board nextBoard : board.neighbors()) {
+            for (Board nextBoard : currentBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(current, nextBoard)) {
-                    minPQ.insert(new SearchNode(nextBoard, current, nextBoard.manhattan() + totalMoves));
+                    initialMinPQ.insert(new SearchNode(nextBoard, current, currentBoard.manhattan() + 1));
                 }
             }
+
+            for (Board nextBoard : twinBoard.neighbors()) {
+                if (!doesBoardMatchPreviousSearchEntries(twinCurrent, twinBoard)) {
+                    twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinBoard.manhattan() + 1));
+                }
+            }
+
+            totalMoves++;
         }
     }
 
@@ -74,19 +89,39 @@ public class Solver {
     // is the initial board solvable?
     public boolean isSolvable() {
 
-        return totalMoves > -1;
+        return isSolvable;
     }
 
     // min number of priority to solve initial board; -1 if no solution
     public int moves() {
+        if (goalBoard != null) {
+            SearchNode current = goalBoard;
+            int count = 0;
+            while (current != null) {
+                count++;
+                current = current.previousSearchNode;
+            }
 
-        return totalMoves;
+            return count - 1;
+        }
+
+        return -1;
     }
 
     // sequence of boards in a shortest solution; null if no solution
     public Iterable<Board> solution() {
+        if (goalBoard != null) {
+            Stack<Board> goalPath = new Stack<Board>();
+            SearchNode current = goalBoard;
+            while (current != null) {
+                goalPath.push(current.initialBoard);
+                current = current.previousSearchNode;
+            }
 
-        return solution;
+            return goalPath;
+        }
+
+        return null;
     }
 
     // solve a slider puzzle (given below)
