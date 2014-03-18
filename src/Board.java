@@ -140,7 +140,7 @@ public class Board {
 
     // a board obtained by exchanging two adjacent blocks in the same row
     public Board twin() {
-        int[][] tiles = blocks.clone();
+        int[][] tiles = deepCopyOfArray(blocks);
         int randomI;
         int randomJ;
         do {
@@ -202,11 +202,13 @@ public class Board {
         //up, left, down, right
         Queue<Board> neighbors = new Queue<Board>();
         int emptyI = 0, emptyJ = 0;
+        outerloop:
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (blocks[i][j] == 0) {
                     emptyI = i;
                     emptyJ = j;
+                    break outerloop;
                 }
             }
         }
