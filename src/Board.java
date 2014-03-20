@@ -11,7 +11,7 @@ public class Board {
     private final int[][] blocks;
     private int N;
 
-    protected int[][] solvedTilePositions;
+    private int[][] solvedTilePositions;
     private Point[] correctTilePositions;
 
     private static class Point {
@@ -185,6 +185,8 @@ public class Board {
         if (y.getClass() != this.getClass()) return false;
 
         Board that = (Board) y;
+        if (that.N > this.N || that.N < this.N) return false;
+
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (blocks[i][j] != that.blocks[i][j]) {
