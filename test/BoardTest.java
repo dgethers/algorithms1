@@ -25,6 +25,13 @@ public class BoardTest {
     }
 
     @Test
+    public void unequalBoardsWithDifferentSizes() {
+        Board board1 = new Board(new int[][]{{1, 2}, {3, 0}});
+        Board board2 = new Board(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}});
+        assertFalse(board2.equals(board1));
+    }
+
+    @Test
     public void unEqualBoards() {
         Board board1 = new Board(new int[][]{{1, 2}, {3, 0}});
         Board board2 = new Board(new int[][]{{0, 3}, {1, 2}});
