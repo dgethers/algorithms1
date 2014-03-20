@@ -59,13 +59,13 @@ public class Solver {
 
             for (Board nextBoard : currentBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(current, nextBoard)) {
-                    initialMinPQ.insert(new SearchNode(nextBoard, current, currentBoard.manhattan() + 1));
+                    initialMinPQ.insert(new SearchNode(nextBoard, current, current.priority + nextBoard.manhattan()));
                 }
             }
 
             for (Board nextBoard : twinBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(twinCurrent, twinBoard)) {
-                    twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinBoard.manhattan() + 1));
+                    twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinCurrent.priority + twinBoard.manhattan()));
                 }
             }
 
