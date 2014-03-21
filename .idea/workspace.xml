@@ -4,6 +4,7 @@
     <list id="a029c61a-e77d-4e05-9e9e-ddace77cb499" name="Default" comment="New workspace changes." />
     <list id="db549b56-4947-4f9f-9e40-f9b41eb0243d" name="Collinear" comment="Implemented slopeTo, compareTo and slope comparator for Point. Created test cases for Point." />
     <list default="true" id="cd853fbf-9e35-435b-867f-2770bc5dcce2" name="8puzzle" comment="Possible fix for incorrect number of search nodes from goal to initial board.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/PuzzleChecker.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/PuzzleChecker.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/algorithms1.iml" afterPath="$PROJECT_DIR$/algorithms1.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -164,10 +165,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PointTest.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PointTest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/runConfigurations/PointTest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5698324" vertical-offset="0" max-vertical-offset="895">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <caret line="30" column="32" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
               <folding />
             </state>
@@ -184,24 +185,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardTest.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BoardTest.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/BoardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2601">
+            <state vertical-scroll-proportion="0.3370044" vertical-offset="204" max-vertical-offset="2601">
               <caret line="30" column="31" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="23655" max-vertical-offset="25194">
-              <caret line="1415" column="27" selection-start-line="1415" selection-start-column="27" selection-end-line="1415" selection-end-column="27" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -628,7 +619,7 @@
       <workItem from="1395169281469" duration="6712000" />
       <workItem from="1395192612012" duration="5353000" />
       <workItem from="1395354094486" duration="10232000" />
-      <workItem from="1395411315274" duration="17634000" />
+      <workItem from="1395411315274" duration="17910000" />
     </task>
     <task id="LOCAL-00001" summary="Adding new run configurations.">
       <created>1392319336278</created>
@@ -859,11 +850,15 @@
       <created>1395433371408</created>
       <updated>1395433371408</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Workspace updates.">
+      <created>1395433717082</created>
+      <updated>1395433717083</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389313000" />
+    <option name="totallyTimeSpent" value="389589000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -958,7 +953,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Adding new run configuraitons and workspace changes." />
     <MESSAGE value="Cleaner implementation." />
     <MESSAGE value="Fixed subsegments for some cases." />
     <MESSAGE value="Workspace changes and run configuration additions." />
@@ -983,7 +977,8 @@
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Removal of unneeded run configuration." />
     <MESSAGE value="Additional run configurations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Additional run configurations." />
+    <MESSAGE value="Workspace updates." />
+    <option name="LAST_COMMIT_MESSAGE" value="Workspace updates." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1326,28 +1321,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/BoardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2601">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/algorithms1.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="908">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="23655" max-vertical-offset="25194">
-          <caret line="1415" column="27" selection-start-line="1415" selection-start-column="27" selection-end-line="1415" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1378,9 +1355,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/runConfigurations/PointTest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5698324" vertical-offset="0" max-vertical-offset="895">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
           <caret line="30" column="32" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4938548" vertical-offset="22803" max-vertical-offset="25279">
+          <caret line="1420" column="11" selection-start-line="1420" selection-start-column="11" selection-end-line="1420" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/BoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3370044" vertical-offset="204" max-vertical-offset="2601">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
