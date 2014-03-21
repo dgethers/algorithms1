@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class Board {
 
     private final int[][] blocks;
-    private int N;
+    private final int N;
 
     private int[][] solvedTilePositions;
     private Point[] correctTilePositions;
@@ -30,9 +30,9 @@ public class Board {
     }
 
     // construct a board from an N-by-N array of blocks (where blocks[i][j] = block in row i, column j)
-    public Board(int[][] blocks) {
-        this.blocks = blocks.clone();
-        N = blocks.length;
+    public Board(int[][] tiles) {
+        N = tiles.length;
+        this.blocks = deepCopyOfArray(tiles);
 
         createReferenceGoalBoard();
         createCorrectPositionReferenceArray();
@@ -255,10 +255,11 @@ public class Board {
 
     // string representation of the board (in the output format specified below)
     public String toString() {
+        final int dimension = blocks.length;
         StringBuilder s = new StringBuilder();
-        s.append(N).append("\n");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+        s.append(dimension).append("\n");
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
                 s.append(String.format("%2d ", blocks[i][j]));
             }
             s.append("\n");

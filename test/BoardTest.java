@@ -12,6 +12,21 @@ import static junit.framework.Assert.*;
 public class BoardTest {
 
     @Test
+    public void nullTests() {
+        int[][] tiles = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+        Board board = new Board(tiles);
+        board.toString();
+    }
+
+    @Test
+    public void immutableBoard() {
+        int[][] tiles = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 0}};
+        Board board = new Board(tiles);
+        tiles[0][2] = 14;
+        assertTrue(board.isGoal());
+    }
+
+    @Test
     public void equalBoardsWithSameValues() {
         Board board1 = new Board(new int[][]{{1, 2}, {3, 0}});
         Board board2 = new Board(new int[][]{{1, 2}, {3, 0}});
@@ -58,8 +73,8 @@ public class BoardTest {
 
     @Test
     public void correctBoardDimension() {
-        Board board = new Board(new int[][]{{1, 2}, {3, 4}, {5, 0}});
-        assertEquals(3, board.dimension());
+        Board board = new Board(new int[][]{{1, 2}, {3, 0}});
+        assertEquals(2, board.dimension());
     }
 
     @Test
@@ -135,4 +150,5 @@ public class BoardTest {
             assertTrue(neighbor.equals(validNeighbor));
         }
     }
+
 }

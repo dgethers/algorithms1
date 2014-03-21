@@ -9,11 +9,13 @@ public class Solver {
         private Board initialBoard;
         private SearchNode previousSearchNode;
         private int priority;
+        private int numberOfMoves = 0;
 
-        private SearchNode(Board initialBoard, SearchNode previousSearchNode, int priority) {
+        private SearchNode(Board initialBoard, SearchNode previousSearchNode, int numberOfMoves, int priority) {
             this.initialBoard = initialBoard;
             this.previousSearchNode = previousSearchNode;
             this.priority = priority;
+            this.numberOfMoves = numberOfMoves;
         }
 
         @Override
@@ -22,7 +24,7 @@ public class Solver {
         }
     }
 
-    private int totalMoves;
+    //    private int totalMoves;
     private SearchNode goalBoard;
     private boolean isSolvable = false;
 
@@ -33,19 +35,19 @@ public class Solver {
 
     private void solve(Board initialBoard) {
         MinPQ<SearchNode> initialMinPQ = new MinPQ<SearchNode>();
-        MinPQ<SearchNode> twinMinPQ = new MinPQ<SearchNode>();
+//        MinPQ<SearchNode> twinMinPQ = new MinPQ<SearchNode>();
 
-        initialMinPQ.insert(new SearchNode(initialBoard, null, initialBoard.manhattan()));
-        Board twin = initialBoard.twin();
-        twinMinPQ.insert(new SearchNode(twin, null, twin.manhattan()));
+        initialMinPQ.insert(new SearchNode(initialBoard, null, 0, initialBoard.manhattan()));
+//        Board twin = initialBoard.twin();
+//        twinMinPQ.insert(new SearchNode(twin, null, twin.manhattan()));
 
         boolean keepProcessing = true;
         while (keepProcessing) {
             SearchNode current = initialMinPQ.delMin();
-            SearchNode twinCurrent = twinMinPQ.delMin();
+//            SearchNode twinCurrent = twinMinPQ.delMin();
 
             Board currentBoard = current.initialBoard;
-            Board twinBoard = twinCurrent.initialBoard;
+//            Board twinBoard = twinCurrent.initialBoard;
 
             if (currentBoard.isGoal()) {
                 goalBoard = current;
@@ -53,28 +55,29 @@ public class Solver {
                 keepProcessing = false;
             }
 
-            if (twinBoard.isGoal() && initialMinPQ.size() > 0) { //twin is solvable but original still has nodes
+            /*if (twinBoard.isGoal() && initialMinPQ.size() > 0) { //twin is solvable but original still has nodes
                 keepProcessing = false;
-            }
+            }*/
 
             for (Board nextBoard : currentBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(current, nextBoard)) {
-                    initialMinPQ.insert(new SearchNode(nextBoard, current, current.priority + nextBoard.manhattan()));
+                    SearchNode sn = new SearchNode(nextBoard, current, current.numberOfMoves + 1, nextBoard.manhattan() + (current.numberOfMoves + 1));
+                    initialMinPQ.insert(sn);
                 }
             }
 
-            for (Board nextBoard : twinBoard.neighbors()) {
+            /*for (Board nextBoard : twinBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(twinCurrent, twinBoard)) {
-                    twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinCurrent.priority + twinBoard.manhattan()));
+                    twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinCurrent.priority + twinBoard.manhattan() + 1));
                 }
-            }
+            }*/
 
-            totalMoves++;
+//            totalMoves++;
         }
     }
 
     private boolean doesBoardMatchPreviousSearchEntries(SearchNode searchNode, Board board) {
-        SearchNode previous = searchNode.previousSearchNode;
+        /*SearchNode previous = searchNode.previousSearchNode;
         while (previous != null) {
             if (previous.initialBoard.equals(board)) {
                 return true;
@@ -83,7 +86,12 @@ public class Solver {
             previous = previous.previousSearchNode;
         }
 
-        return false;
+        return false;*/
+
+        SearchNode previous = searchNode.previousSearchNode;
+
+        return previous != null && previous.initialBoard.equals(board);
+
     }
 
     // is the initial board solvable?
