@@ -35,19 +35,19 @@ public class Solver {
 
     private void solve(Board initialBoard) {
         MinPQ<SearchNode> initialMinPQ = new MinPQ<SearchNode>();
-//        MinPQ<SearchNode> twinMinPQ = new MinPQ<SearchNode>();
+        MinPQ<SearchNode> twinMinPQ = new MinPQ<SearchNode>();
 
         initialMinPQ.insert(new SearchNode(initialBoard, null, 0, initialBoard.manhattan()));
-//        Board twin = initialBoard.twin();
-//        twinMinPQ.insert(new SearchNode(twin, null, twin.manhattan()));
+        Board twin = initialBoard.twin();
+        twinMinPQ.insert(new SearchNode(twin, null, 0, twin.manhattan()));
 
         boolean keepProcessing = true;
         while (keepProcessing) {
             SearchNode current = initialMinPQ.delMin();
-//            SearchNode twinCurrent = twinMinPQ.delMin();
+            SearchNode twinCurrent = twinMinPQ.delMin();
 
             Board currentBoard = current.initialBoard;
-//            Board twinBoard = twinCurrent.initialBoard;
+            Board twinBoard = twinCurrent.initialBoard;
 
             if (currentBoard.isGoal()) {
                 goalBoard = current;
@@ -55,24 +55,24 @@ public class Solver {
                 keepProcessing = false;
             }
 
-            /*if (twinBoard.isGoal() && initialMinPQ.size() > 0) { //twin is solvable but original still has nodes
+            if (twinBoard.isGoal() && initialMinPQ.size() > 0) { //twin is solvable but original still has nodes
                 keepProcessing = false;
-            }*/
+            }
 
             for (Board nextBoard : currentBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(current, nextBoard)) {
-                    SearchNode sn = new SearchNode(nextBoard, current, current.numberOfMoves + 1, nextBoard.manhattan() + (current.numberOfMoves + 1));
+                    SearchNode sn = new SearchNode(nextBoard, current, current.numberOfMoves + 1, nextBoard.manhattan()
+                            + (current.numberOfMoves + 1));
                     initialMinPQ.insert(sn);
                 }
             }
 
-            /*for (Board nextBoard : twinBoard.neighbors()) {
+            for (Board nextBoard : twinBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(twinCurrent, twinBoard)) {
-                    twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinCurrent.priority + twinBoard.manhattan() + 1));
+                    twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinCurrent.numberOfMoves + 1,
+                            twinBoard.manhattan() + (current.numberOfMoves + 1)));
                 }
-            }*/
-
-//            totalMoves++;
+            }
         }
     }
 
