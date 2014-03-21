@@ -10,8 +10,6 @@ public class Board {
 
     private final int[][] blocks;
     private final int N;
-
-    private int[][] solvedTilePositions;
     private Point[] correctTilePositions;
 
     private static class Point {
@@ -55,18 +53,20 @@ public class Board {
         }
     }
 
-    private void createReferenceGoalBoard() {
-        solvedTilePositions = new int[N][N];
+    private int[][] createReferenceGoalBoard() {
+        int[][] goalBoard = new int[N][N];
         int currentValue = 1;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (i == N - 1 && j == N - 1) {
-                    solvedTilePositions[i][j] = 0;
+                    goalBoard[i][j] = 0;
                 } else {
-                    solvedTilePositions[i][j] = currentValue++;
+                    goalBoard[i][j] = currentValue++;
                 }
             }
         }
+
+        return goalBoard;
     }
 
 
@@ -78,9 +78,10 @@ public class Board {
     // number of blocks out of place
     public int hamming() {
         int countOfBlockInPlace = 0;
+        int[][] goalBoard = createReferenceGoalBoard();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (blocks[i][j] != solvedTilePositions[i][j]) {
+                if (blocks[i][j] != goalBoard[i][j]) {
 //                    System.out.printf("block[%d][%d]=%d vs. solvedTilePositions=%d%n", i, j, blocks[i][j], solvedTilePositions[i][j]);
                     if (blocks[i][j] != 0) {
                         countOfBlockInPlace++;
@@ -95,9 +96,10 @@ public class Board {
     // sum of Manhattan distances between blocks and goal
     public int manhattan() {
         int sum = 0;
+        int[][] goalBoard = createReferenceGoalBoard();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (blocks[i][j] != solvedTilePositions[i][j] && blocks[i][j] != 0) {
+                if (blocks[i][j] != goalBoard[i][j] && blocks[i][j] != 0) {
                     Point currentPosition = new Point(i, j);
                     Point correctPosition = correctTilePositions[blocks[i][j]];
 
@@ -135,7 +137,7 @@ public class Board {
 
     // is this board the goal board?
     public boolean isGoal() {
-        return Arrays.deepEquals(solvedTilePositions, blocks);
+        return Arrays.deepEquals(createReferenceGoalBoard(), blocks);
     }
 
     // a board obtained by exchanging two adjacent blocks in the same row
