@@ -146,12 +146,17 @@ public class Board {
         do {
             randomI = StdRandom.uniform(N);
             randomJ = StdRandom.uniform(N);
-        } while (tiles[randomI][randomJ] == 0);
+        } while (continueGeneratingRandomIndex(tiles, randomI, randomJ));
 //        System.out.printf("randomI:%d, randomJ:%d%n", randomI, randomJ);
 
         swap(tiles, randomI, randomJ);
 
         return new Board(tiles);
+    }
+
+    private boolean continueGeneratingRandomIndex(int[][] tiles, int chosenI, int chosenJ) {
+        return tiles[chosenI][chosenJ] == 0 || chosenJ < N - 1 && tiles[chosenI][chosenJ + 1] == 0
+                || chosenJ > 0 && tiles[chosenI][chosenJ - 1] == 0;
     }
 
     private void swap(int[][] tiles, int i, int j) {
