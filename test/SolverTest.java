@@ -30,21 +30,21 @@ public class SolverTest {
 
     }
 
-    //    @Test
+    @Test
     public void puzzle3x3Unsolvable() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle3x3-unsolvable.txt"));
         assertEquals(-1, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle3x3Unsolvable1() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle3x3-unsolvable1.txt"));
         assertEquals(-1, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle3x3Unsolvable2() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle3x3-unsolvable2.txt"));
         assertEquals(-1, solver.moves());
@@ -275,63 +275,63 @@ public class SolverTest {
 
     }
 
-    //    @Test
+    @Test
     public void puzzle32() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle32.txt"));
         assertEquals(32, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle33() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle33.txt"));
         assertEquals(33, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle34() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle34.txt"));
         assertEquals(34, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle35() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle35.txt"));
         assertEquals(35, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle36() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle36.txt"));
         assertEquals(36, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle37() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle37.txt"));
         assertEquals(37, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle38() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle38.txt"));
         assertEquals(38, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle39() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle39.txt"));
         assertEquals(39, solver.moves());
 
     }
 
-    //    @Test
+    @Test
     public void puzzle40() {
         Solver solver = new Solver(getBoardFromInputFile("in/8puzzle/puzzle40.txt"));
         assertEquals(40, solver.moves());

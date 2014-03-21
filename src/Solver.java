@@ -70,14 +70,14 @@ public class Solver {
             for (Board nextBoard : twinBoard.neighbors()) {
                 if (!doesBoardMatchPreviousSearchEntries(twinCurrent, twinBoard)) {
                     twinMinPQ.insert(new SearchNode(nextBoard, twinCurrent, twinCurrent.numberOfMoves + 1,
-                            twinBoard.manhattan() + (current.numberOfMoves + 1)));
+                            twinBoard.manhattan() + (twinCurrent.numberOfMoves + 1)));
                 }
             }
         }
     }
 
     private boolean doesBoardMatchPreviousSearchEntries(SearchNode searchNode, Board board) {
-        /*SearchNode previous = searchNode.previousSearchNode;
+        SearchNode previous = searchNode.previousSearchNode;
         while (previous != null) {
             if (previous.initialBoard.equals(board)) {
                 return true;
@@ -86,12 +86,7 @@ public class Solver {
             previous = previous.previousSearchNode;
         }
 
-        return false;*/
-
-        SearchNode previous = searchNode.previousSearchNode;
-
-        return previous != null && previous.initialBoard.equals(board);
-
+        return false;
     }
 
     // is the initial board solvable?
