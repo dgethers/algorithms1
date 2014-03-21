@@ -24,7 +24,6 @@ public class Solver {
         }
     }
 
-    //    private int totalMoves;
     private SearchNode goalBoard;
     private boolean isSolvable = false;
 

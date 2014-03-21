@@ -10,16 +10,15 @@ public class Board {
 
     private final int[][] blocks;
     private final int N;
-    private Point[] correctTilePositions;
 
     private static class Point {
+        private int x;
+        private int y;
+
         private Point(int x, int y) {
             this.x = x;
             this.y = y;
         }
-
-        private int x;
-        private int y;
 
         @Override
         public String toString() {
@@ -31,26 +30,25 @@ public class Board {
     public Board(int[][] tiles) {
         N = tiles.length;
         this.blocks = deepCopyOfArray(tiles);
-
-        createReferenceGoalBoard();
-        createCorrectPositionReferenceArray();
     }
 
-    private void createCorrectPositionReferenceArray() {
-        correctTilePositions = new Point[N * N];
+    private Point[] createCorrectPositionReferenceArray() {
+        Point[] oneDtoTwo2DArray = new Point[N * N];
         int row = 0;
         int column = 0;
-        for (int i = 0; i < correctTilePositions.length; i++) {
+        for (int i = 0; i < oneDtoTwo2DArray.length; i++) {
             if (i == 0) {
-                correctTilePositions[i] = new Point(N - 1, N - 1);
+                oneDtoTwo2DArray[i] = new Point(N - 1, N - 1);
             } else {
-                correctTilePositions[i] = new Point(row, column++);
+                oneDtoTwo2DArray[i] = new Point(row, column++);
                 if (i % N == 0) {
                     row++;
                     column = 0;
                 }
             }
         }
+
+        return oneDtoTwo2DArray;
     }
 
     private int[][] createReferenceGoalBoard() {
@@ -82,7 +80,6 @@ public class Board {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (blocks[i][j] != goalBoard[i][j]) {
-//                    System.out.printf("block[%d][%d]=%d vs. solvedTilePositions=%d%n", i, j, blocks[i][j], solvedTilePositions[i][j]);
                     if (blocks[i][j] != 0) {
                         countOfBlockInPlace++;
                     }
@@ -97,34 +94,29 @@ public class Board {
     public int manhattan() {
         int sum = 0;
         int[][] goalBoard = createReferenceGoalBoard();
+        Point[] oneDtoTwo2DArray = createCorrectPositionReferenceArray();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (blocks[i][j] != goalBoard[i][j] && blocks[i][j] != 0) {
                     Point currentPosition = new Point(i, j);
-                    Point correctPosition = correctTilePositions[blocks[i][j]];
+                    Point correctPosition = oneDtoTwo2DArray[blocks[i][j]];
 
                     if (correctPosition.x == currentPosition.x) { //on the same x-axis, only move on y-axis
                         if (correctPosition.y > currentPosition.y) {
-//                            System.out.println(correctPosition.y - currentPosition.y);
                             sum = sum + (correctPosition.y - currentPosition.y);
                         } else {
-//                            System.out.println(currentPosition.y - correctPosition.y);
                             sum = sum + (currentPosition.y - correctPosition.y);
                         }
                     } else if (correctPosition.x > currentPosition.x) {
                         if (correctPosition.y > currentPosition.y) {
-//                            System.out.println((correctPosition.y - currentPosition.y) + (correctPosition.x - currentPosition.x));
                             sum = sum + (correctPosition.y - currentPosition.y) + (correctPosition.x - currentPosition.x);
                         } else {
-//                            System.out.println((currentPosition.y - correctPosition.y) + (correctPosition.x - currentPosition.x));
                             sum = sum + (currentPosition.y - correctPosition.y) + (correctPosition.x - currentPosition.x);
                         }
                     } else {
                         if (correctPosition.y > currentPosition.y) {
-//                            System.out.println((correctPosition.y - currentPosition.y) + (currentPosition.x - correctPosition.x));
                             sum = sum + (correctPosition.y - currentPosition.y) + (currentPosition.x - correctPosition.x);
                         } else {
-//                            System.out.println((currentPosition.y - correctPosition.y) + (currentPosition.x - correctPosition.x));
                             sum = sum + (currentPosition.y - correctPosition.y) + (currentPosition.x - correctPosition.x);
                         }
                     }
@@ -149,7 +141,6 @@ public class Board {
             randomI = StdRandom.uniform(N);
             randomJ = StdRandom.uniform(N);
         } while (continueGeneratingRandomIndex(tiles, randomI, randomJ));
-//        System.out.printf("randomI:%d, randomJ:%d%n", randomI, randomJ);
 
         swap(tiles, randomI, randomJ);
 
@@ -168,8 +159,6 @@ public class Board {
         } else { //go to left
             newJ = j - 1;
         }
-
-//        System.out.printf("i:%d, j:%d newJ:%d%n", i, j, newJ);
 
         swapTile(tiles, i, j, i, newJ);
     }
