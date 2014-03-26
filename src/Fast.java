@@ -36,9 +36,8 @@ public class Fast {
             int matchCount = 1;
             for (int j = 0; j < tmp.length; j++) {
                 Point q = tmp[j];
-//                System.out.printf("Comparing %s with %s with slope %f and compare %d%n", p, q, p.slopeTo(q), p.compareTo(q));
 
-                if (slopeTo == p.slopeTo(q)) { //slope is the same and is not the origin point
+                if (slopeTo == p.slopeTo(q)) {
                     if (min == -1) {
                         min = j;
                     }
@@ -49,7 +48,6 @@ public class Fast {
 
                 if (slopeTo != p.slopeTo(q)) {
                     if (matchCount > 2 && pIsLessThanAllOfItsPart(tmp, p, min, max)) {
-//                        System.out.printf("Segment from %s with matchCount of %d: %s with slope %f%n", p, matchCount, Arrays.toString(Arrays.copyOfRange(tmp, min - 1, max + 1)), slopeTo);
                         printAndDrawLineSegment(tmp, p, min, max, matchCount);
                     }
                     min = -1;
@@ -60,17 +58,14 @@ public class Fast {
             }
 
             if (matchCount > 2 && pIsLessThanAllOfItsPart(tmp, p, min, max)) {
-//                System.out.printf("Segment from %s with matchCount of %d: %s with slope %f%n", p, matchCount, Arrays.toString(Arrays.copyOfRange(tmp, min - 1, max + 1)), slopeTo);
                 printAndDrawLineSegment(tmp, p, min, max, matchCount);
             }
         }
-
-//        System.out.println("segmentCount = " + segmentCount);
     }
 
     private boolean pIsLessThanAllOfItsPart(Point[] array, Point p, int min, int max) {
         for (int i = min - 1; i <= max; i++) {
-            if (p.compareTo(array[i]) != -1) {
+            if (p.compareTo(array[i]) < 0) {
                 return false;
             }
         }
