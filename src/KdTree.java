@@ -5,6 +5,15 @@
  */
 public class KdTree {
 
+    private static class Node {
+        private Point2D p; // the point
+        private RectHV rect; // the axis-aligned rectangle corresponding to this node
+        private Node lb; // the left/bottom subtree
+        private Node rb; // the right/top subtree
+    }
+
+    private int size;
+
     // construct an empty set of points
     public KdTree() {
         //TODO: Implement this
@@ -12,14 +21,12 @@ public class KdTree {
 
     // is the set empty?
     public boolean isEmpty() {
-        //TODO: Implement this
-        return false;
+        return size < 1;
     }
 
     // number of points in the set
     public int size() {
-        //TODO: Implement this
-        return 0;
+        return size;
     }
 
     // add the point p to the set (if it is not already in the set)
