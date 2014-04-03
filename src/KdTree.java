@@ -10,12 +10,14 @@ public class KdTree {
         private RectHV rect; // the axis-aligned rectangle corresponding to this node
         private Node lb; // the left/bottom subtree
         private Node rb; // the right/top subtree
+        private int nodeOrientation;
 
-        private Node(Point2D p, RectHV rect, Node lb, Node rb) {
+        private Node(Point2D p, RectHV rect, Node lb, Node rb, int nodeOrientation) {
             this.p = p;
             this.rect = rect;
             this.lb = lb;
             this.rb = rb;
+            this.nodeOrientation = nodeOrientation;
         }
     }
 
@@ -50,8 +52,8 @@ public class KdTree {
 //        System.out.println("KdTree.insert");
         if (node == null) { //no entries in the data structure
 //            System.out.println("root is null so inserting first element");
-            RectHV rectHV = new RectHV(0, 0, p.x(), 1);
-            root = new Node(p, rectHV, null, null);
+            RectHV rectHV = new RectHV(0, 0, 1, 1);
+            root = new Node(p, rectHV, null, null, X_AXIS_ORIENTATION);
             size++;
             return;
         }
@@ -60,8 +62,8 @@ public class KdTree {
             if (Double.compare(p.x(), node.p.x()) < 0) {
                 if (node.lb == null) {
 //                    System.out.println("inserting on the left side using X_AXIS");
-                    RectHV rectHV = new RectHV(0, 0, p.x(), 0);
-                    node.lb = new Node(p, rectHV, null, null);
+                    RectHV rectHV = new RectHV(node.rect.xmin(), node.rect.ymin(), node.p.x(), node.rect.ymax());
+                    node.lb = new Node(p, rectHV, null, null, Y_AXIS_ORIENTATION);
                     size++;
                 } else {
                     insert(node.lb, p, Y_AXIS_ORIENTATION);
@@ -69,8 +71,8 @@ public class KdTree {
             } else {
                 if (node.rb == null) {
 //                    System.out.println("inserting on the right side using X_AXIS");
-                    RectHV rectHV = new RectHV(0, 0, p.x(), 0);
-                    node.rb = new Node(p, rectHV, null, null);
+                    RectHV rectHV = new RectHV(node.rect.xmin(), node.rect.ymin(), node.p.x(), node.rect.ymax());
+                    node.rb = new Node(p, rectHV, null, null, Y_AXIS_ORIENTATION);
                     size++;
                 } else {
                     insert(node.rb, p, Y_AXIS_ORIENTATION);
@@ -80,8 +82,8 @@ public class KdTree {
             if (Double.compare(p.y(), node.p.y()) < 0) {
                 if (node.lb == null) {
 //                    System.out.println("inserting on the left side using Y_AXIS");
-                    RectHV rectHV = new RectHV(0, 0, 0, p.y());
-                    node.lb = new Node(p, rectHV, null, null);
+                    RectHV rectHV = new RectHV(node.rect.ymin(), node.rect.xmin(), node.p.y(), node.rect.xmax());
+                    node.lb = new Node(p, rectHV, null, null, X_AXIS_ORIENTATION);
                     size++;
                 } else {
                     insert(node.lb, p, X_AXIS_ORIENTATION);
@@ -89,8 +91,8 @@ public class KdTree {
             } else {
                 if (node.rb == null) {
 //                    System.out.println("inserting on the right side using Y_AXIS");
-                    RectHV rectHV = new RectHV(0, 0, 0, p.y());
-                    node.rb = new Node(p, rectHV, null, null);
+                    RectHV rectHV = new RectHV(node.rect.ymin(), node.rect.xmin(), node.p.y(), node.rect.xmax());
+                    node.rb = new Node(p, rectHV, null, null, X_AXIS_ORIENTATION);
                     size++;
                 } else {
                     insert(node.rb, p, X_AXIS_ORIENTATION);
@@ -136,49 +138,88 @@ public class KdTree {
 
 //        StdDraw.setPenColor(StdDraw.BLACK);
 //        StdDraw.setPenRadius(.0003);
-//        StdDraw.square(0, 0, 1);
-        draw(root, X_AXIS_ORIENTATION);
+//        StdDraw.square(.5, .5, .5);
+        draw(root, 0.0, 1.0, 0);
     }
 
-    private void draw(Node node, int orientation) {
-        Queue<Node> printingNodes = new Queue<Node>();
-        printingNodes.enqueue(root);
-        while (!printingNodes.isEmpty()) {
-            Node tmp = printingNodes.dequeue();
+    private static class PrintNode {
+        private Node node;
+        private double parentX;
+        private double parentY;
 
-            if (tmp == root) {
+        private PrintNode(Node node, double parentX, double parentY) {
+            this.node = node;
+            this.parentX = parentX;
+            this.parentY = parentY;
+        }
+    }
+
+    private static int getOppositeOrientation(int originalOrientation) {
+        if (originalOrientation == X_AXIS_ORIENTATION) {
+            return Y_AXIS_ORIENTATION;
+        } else {
+            return X_AXIS_ORIENTATION;
+        }
+    }
+
+    private void draw(Node node, double parentX, double parentY, int drawCount) {
+        /*
+                --Vertical Line--
                 StdDraw.setPenColor(StdDraw.RED);
                 StdDraw.setPenRadius(.0003);
                 StdDraw.line(tmp.p.x(), 0, tmp.p.x(), 1);
-            } else {
 
-            }
+                --Horizontal Line--
+                StdDraw.setPenColor(StdDraw.BLUE);
+                StdDraw.setPenRadius(.0003);
+                StdDraw.line(tmp.p.x(), 0, tmp.p.x(), 1);
 
-            StdDraw.setPenColor(StdDraw.BLACK);
-            StdDraw.setPenRadius(.005);
-            tmp.p.draw();
-            if (tmp.lb != null) {
-                printingNodes.enqueue(tmp.lb);
-            }
+                --Point--
+                StdDraw.setPenColor(StdDraw.BLACK);
+                StdDraw.setPenRadius(.0003);
+                node.p.draw();
+         */
+        //        if (node != null && drawCount < DRAW_COUNT) {
+//        if (node != null) {
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.setPenRadius(.01);
+        node.p.draw();
+        StdDraw.setPenRadius(.0001);
+//            StdDraw.text(node.p.x() + .03, node.p.y() + .03, node.p.toString());
+        StdDraw.text(node.p.x() + .03, node.p.y() + .03, Integer.toString(drawCount));
 
-            if (tmp.rb != null) {
-                printingNodes.enqueue(tmp.rb);
-            }
-        }
-        /*if (node == root) {
+        if (node.nodeOrientation == X_AXIS_ORIENTATION) {
             StdDraw.setPenColor(StdDraw.RED);
             StdDraw.setPenRadius(.0003);
-            StdDraw.line(node.p.x(), 0, node.p.x(), 1);
-            StdDraw.setPenColor(StdDraw.BLACK);
-            StdDraw.setPenRadius(.01);
-            node.p.draw();
-            draw(node.lb, Y_AXIS_ORIENTATION);
-            draw(node.rb, Y_AXIS_ORIENTATION);
-        } else if (node != null) {
+            if (node.p.y() > .5) {
+                StdDraw.line(node.p.x(), 1, node.p.x(), parentY);
+            } else {
+                StdDraw.line(node.p.x(), 0, node.p.x(), parentY);
+            }
 
+            StdDraw.setPenColor(StdDraw.ORANGE);
+            StdDraw.setPenRadius(.0003);
+            node.rect.draw();
         } else {
-            return;
-        }*/
+
+            StdDraw.setPenColor(StdDraw.BLUE);
+            StdDraw.setPenRadius(.0003);
+            if (node.p.x() > .5) {
+                StdDraw.line(1, node.p.y(), parentX, node.p.y());
+            } else {
+                StdDraw.line(0, node.p.y(), parentX, node.p.y());
+            }
+
+            StdDraw.setPenColor(StdDraw.GREEN);
+            StdDraw.setPenRadius(.0003);
+            node.rect.draw();
+        }
+        if (node.lb != null)
+            draw(node.lb, node.p.x(), node.p.y(), ++drawCount);
+        if (node.rb != null)
+            draw(node.rb, node.p.x(), node.p.y(), ++drawCount);
+//        }
+
     }
 
     // all points in the set that are inside the rectangle
@@ -211,13 +252,17 @@ public class KdTree {
         System.out.printf("kdTree contains %s = %b%n", p4, kdTree.contains(p4));
         System.out.printf("kdTree contains %s = %b%n", p5, kdTree.contains(p5));*/
         KdTree kdTree = new KdTree();
-        In in = new In(args[0]);      // input file
+        /*In in = new In(args[0]);      // input file
         while (!in.isEmpty()) {
             double x = in.readDouble();
             double y = in.readDouble();
-//            System.out.printf("inserting point(%f, %f) into kdtree%n", x, y);
             kdTree.insert(new Point2D(x, y));
-        }
+        }*/
+        kdTree.insert(new Point2D(0.7, 0.2));
+        kdTree.insert(new Point2D(0.5, 0.4));
+        kdTree.insert(new Point2D(0.2, 0.3));
+        kdTree.insert(new Point2D(0.4, 0.7));
+        kdTree.insert(new Point2D(0.9, 0.6));
 //        System.out.printf("size of kdtree is: %d%n", kdTree.size());
         kdTree.draw();
     }
