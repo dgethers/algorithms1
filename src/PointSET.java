@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * User: outzider
  * Date: 3/26/2014
@@ -5,48 +7,65 @@
  */
 public class PointSET {
 
+    private SET<Point2D> points;
+
     // construct an empty set of points
     public PointSET() {
-        //TODO: Implement this
+        points = new SET<Point2D>();
     }
 
     // is the set empty?
     public boolean isEmpty() {
-        //TODO: Implement this
-        return false;
+        return points.isEmpty();
     }
 
     // number of points in the set
     public int size() {
-        //TODO: Implement this
-        return 0;
+        return points.size();
     }
 
     // add the point p to the set (if it is not already in the set)
     public void insert(Point2D p) {
-        //TODO: Implement this
+        points.add(p);
     }
 
     // does the set contain the point p?
     public boolean contains(Point2D p) {
-        //TODO: Implement this
-        return false;
+        return points.contains(p);
     }
 
     // draw all of the points to standard draw
     public void draw() {
-        //TODO: Implement this
+        for (Point2D point : points) {
+            point.draw();
+        }
     }
 
     // all points in the set that are inside the rectangle
     public Iterable<Point2D> range(RectHV rect) {
-        //TODO: Implement this
-        return null;
+        Stack<Point2D> stack = new Stack<Point2D>();
+        for (Point2D point : points) {
+            if (rect.contains(point)) {
+                stack.push(point);
+            }
+
+        }
+
+        return stack;
     }
 
     // a nearest neighbor in the set to p; null if set is empty
     public Point2D nearest(Point2D p) {
-        //TODO: Implement this
-        return null;
+        if (points.isEmpty()) {
+            return null;
+        } else {
+            Point2D[] array = new Point2D[points.size()];
+            int index = 0;
+            for (Point2D point : points) {
+                array[index++] = point;
+            }
+            Arrays.sort(array, p.DISTANCE_TO_ORDER);
+            return array[0];
+        }
     }
 }

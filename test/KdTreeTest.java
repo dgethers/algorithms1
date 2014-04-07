@@ -52,4 +52,16 @@ public class KdTreeTest {
         kdTree.insert(new Point2D(1.0, 0.5));
         assertEquals(1, kdTree.size());
     }
+
+    @Test
+    public void rangeOfPointsInEmptyRectange() {
+        KdTree kdTree = new KdTree();
+        kdTree.insert(new Point2D(0.7, 0.2));
+        kdTree.insert(new Point2D(0.5, 0.4));
+        kdTree.insert(new Point2D(0.2, 0.3));
+        kdTree.insert(new Point2D(0.4, 0.7));
+        kdTree.insert(new Point2D(0.9, 0.6));
+        Iterable<Point2D> range = kdTree.range(new RectHV(0.0, 0.0, 0.0, 0.0));
+        assertFalse(range.iterator().hasNext());
+    }
 }
