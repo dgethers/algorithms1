@@ -101,7 +101,7 @@ public class KdTree {
 //                    System.out.println("parent = " + node);
 //                    System.out.println("node.rect = " + node.rect);
 //                    System.out.printf("y-axis (%f, %f) -> (%f, %f) %n", node.rect.xmin(), node.p.y(), node.rect.xmax(), node.rect.ymax());
-                    RectHV rectHV = new RectHV(node.rect.xmin(), node.rect.ymin(), node.rect.xmax(), p.y());
+                    RectHV rectHV = new RectHV(node.rect.xmin(), node.rect.ymin(), node.rect.xmax(), node.p.y());
                     Node newNode = new Node(p, rectHV, null, null, X_AXIS_ORIENTATION);
                     System.out.printf("inserting node (%s) %n", newNode);
                     node.lb = newNode;
@@ -184,8 +184,8 @@ public class KdTree {
 
 
         System.out.printf("drawing rect %s%n", current.rect);
-        StdDraw.setPenColor(StdDraw.BOOK_LIGHT_BLUE);
-        StdDraw.setPenRadius(.03);
+        StdDraw.setPenColor(StdDraw.BOOK_BLUE);
+        StdDraw.setPenRadius(.0003);
         current.rect.draw();
 
 
@@ -253,7 +253,7 @@ public class KdTree {
 
 //            System.out.printf("dist from rect that intersects is less than 0.0: %s%n", Double.compare(rect.distanceSquaredTo(node.p), 0.0) <= 0);
             System.out.printf("dist from rect that intersects: %f%n", rect.distanceSquaredTo(node.p));
-            if (rect.distanceSquaredTo(node.p) < 0.1) {
+            if (rect.distanceSquaredTo(node.p) == 0.0) {
                 rangedPoints.push(node.p);
 
             }
@@ -271,38 +271,29 @@ public class KdTree {
 
     // a nearest neighbor in the set to p; null if set is empty
     public Point2D nearest(Point2D p) {
-        //TODO: Implement this
+
+        if (root == null) {
+            return null;
+        }
+
+        return nearest(root, p);
+    }
+
+    private Point2D nearest(Node node, Point2D p) {
+
+
         return null;
     }
 
     public static void main(String[] args) {
         KdTree kdTree = new KdTree();
-        /*In in = new In(args[0]);      // input file
+        In in = new In(args[0]);      // input file
         while (!in.isEmpty()) {
             double x = in.readDouble();
             double y = in.readDouble();
             kdTree.insert(new Point2D(x, y));
-        }*/
-        kdTree.insert(new Point2D(0.7, 0.2));
-        kdTree.insert(new Point2D(0.5, 0.4));
-        kdTree.insert(new Point2D(0.2, 0.3));
-        kdTree.insert(new Point2D(0.4, 0.7));
-        kdTree.insert(new Point2D(0.9, 0.6));
+        }
         kdTree.draw();
-//        RectHV broad = new RectHV(0.0, 0.0, 1.0, 1.0);
-//        System.out.printf("points in %s are %s%n", broad, kdTree.range(broad));
-//        RectHV narrow = new RectHV(0.0, 0.0, .6, 1.0);
-//        System.out.printf("points in %s are %s%n", narrow, kdTree.range(narrow));
-//        RectHV nothing = new RectHV(0.0, 0.0, 0.0, 0.0);
-//        StdDraw.setPenColor(StdDraw.BOOK_LIGHT_BLUE);
-//        StdDraw.setPenRadius(.003);
-//        nothing.draw();
-//        System.out.printf("points in %s are %s%n", nothing, kdTree.range(nothing));
-//        RectHV notWorking = new RectHV(0.31738281250000006, 0.46777343750000006, 0.603125, 0.753515625);
-//        Iterable<Point2D> range = kdTree.range(notWorking);
-//        System.out.println("range " + range);
-//        RectHV r = new RectHV(0, 0, .7, .4);
-//        r.draw();
     }
 }
 
