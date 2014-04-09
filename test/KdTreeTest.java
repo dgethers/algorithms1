@@ -64,4 +64,24 @@ public class KdTreeTest {
         Iterable<Point2D> range = kdTree.range(new RectHV(0.0, 0.0, 0.0, 0.0));
         assertFalse(range.iterator().hasNext());
     }
+
+    @Test
+    public void nearestForCircle10() {
+        KdTree kdTree = new KdTree();
+        loadPointsFromFileIntoKdTree(kdTree, "in/kdtree/circle10.txt");
+        Point2D nearest = kdTree.nearest(new Point2D(0.81, 0.3));
+        assertEquals(new Point2D(0.975528, 0.345492), nearest);
+        assertEquals(new Point2D(0.206107, 0.904508), kdTree.nearest(new Point2D(0.237891, 0.884570)));
+        assertEquals(new Point2D(0.206107, 0.904508), kdTree.nearest(new Point2D(1.043555, 0.648242)));
+
+    }
+
+    private void loadPointsFromFileIntoKdTree(KdTree kdTree, String inputFile) {
+        In in = new In(inputFile);
+        while (!in.isEmpty()) {
+            double x = in.readDouble();
+            double y = in.readDouble();
+            kdTree.insert(new Point2D(x, y));
+        }
+    }
 }
