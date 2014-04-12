@@ -242,7 +242,6 @@ public class KdTree {
     // all points in the set that are inside the rectangle
     public Iterable<Point2D> range(RectHV rect) {
         //Note 1: If no points are in range return an empty Iterable<Point2D>
-//        System.out.println("rect = " + rect);
         Stack<Point2D> rangedPoints = new Stack<Point2D>();
         range(rect, root, rangedPoints);
 
@@ -252,17 +251,15 @@ public class KdTree {
     private void range(RectHV rect, Node node, Stack<Point2D> rangedPoints) {
         if (node != null && node.rect.intersects(rect)) {
 
-//            System.out.printf("dist from rect that intersects is less than 0.0: %s%n", Double.compare(rect.distanceSquaredTo(node.p), 0.0) <= 0);
-//            System.out.printf("dist from rect that intersects: %f%n", rect.distanceSquaredTo(node.p));
-            if (rect.distanceSquaredTo(node.p) == 0.0) {
+            if (rect.contains(node.p)) {
                 rangedPoints.push(node.p);
             }
 
-            if (node.lb != null && node.rect.intersects(rect)) {
+            if (node.lb != null) {
                 range(rect, node.lb, rangedPoints);
             }
 
-            if (node.rb != null && node.rect.intersects(rect)) {
+            if (node.rb != null) {
                 range(rect, node.rb, rangedPoints);
             }
         }
