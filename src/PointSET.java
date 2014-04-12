@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * User: outzider
  * Date: 3/26/2014
@@ -59,13 +57,14 @@ public class PointSET {
         if (points.isEmpty()) {
             return null;
         } else {
-            Point2D[] array = new Point2D[points.size()];
-            int index = 0;
+            Point2D nearestPoint = points.min();
             for (Point2D point : points) {
-                array[index++] = point;
+                if (point.distanceSquaredTo(p) < nearestPoint.distanceSquaredTo(p)) {
+                    nearestPoint = point;
+                }
             }
-            Arrays.sort(array, p.DISTANCE_TO_ORDER);
-            return array[0];
+
+            return nearestPoint;
         }
     }
 }
