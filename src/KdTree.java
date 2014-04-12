@@ -22,19 +22,14 @@ public class KdTree {
 
         @Override
         public String toString() {
-            return String.format("(%f, %f) = %s with rect: %s", p.x(), p.y(), nodeOrientation == 0 ? "X-AXIS" : "Y-AXIS", rect.toString());
+            return String.format("(%f, %f) with rect: %s", p.x(), p.y(), rect.toString());
         }
     }
 
-    private int size;
-    private Node root;
     private static final int X_AXIS_ORIENTATION = 0;
     private static final int Y_AXIS_ORIENTATION = 1;
-
-    // construct an empty set of points
-    public KdTree() {
-        //TODO: Implement this
-    }
+    private int size;
+    private Node root;
 
     // is the set empty?
     public boolean isEmpty() {
@@ -281,21 +276,21 @@ public class KdTree {
             return null;
         }
 
-        return nearest(root, p, 0).p;
+        return nearest(root, p).p;
     }
 
-    private Node nearest(Node node, Point2D p, int level) {
+    private Node nearest(Node node, Point2D p) {
         Node nearest = node;
         if (node.rect.contains(p)) {
             if (node.rb != null && node.rect.contains(p)) {
-                Node returned = nearest(node.rb, p, 0);
+                Node returned = nearest(node.rb, p);
                 if (returned.p.distanceTo(p) < nearest.p.distanceTo(p)) {
                     nearest = returned;
                 }
             }
 
             if (node.lb != null && node.rect.contains(p)) {
-                Node returned = nearest(node.lb, p, 0);
+                Node returned = nearest(node.lb, p);
                 if (returned.p.distanceTo(p) < nearest.p.distanceTo(p)) {
                     nearest = returned;
                 }
