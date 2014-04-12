@@ -284,14 +284,14 @@ public class KdTree {
         if (node.rect.contains(p)) {
             if (node.rb != null && node.rect.contains(p)) {
                 Node returned = nearest(node.rb, p);
-                if (returned.p.distanceTo(p) < nearest.p.distanceTo(p)) {
+                if (returned.p.distanceSquaredTo(p) < nearest.p.distanceSquaredTo(p)) {
                     nearest = returned;
                 }
             }
 
             if (node.lb != null && node.rect.contains(p)) {
                 Node returned = nearest(node.lb, p);
-                if (returned.p.distanceTo(p) < nearest.p.distanceTo(p)) {
+                if (returned.p.distanceSquaredTo(p) < nearest.p.distanceSquaredTo(p)) {
                     nearest = returned;
                 }
             }
